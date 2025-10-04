@@ -1,0 +1,138 @@
+/* ===== Our Work Section ===== */
+.our-work {
+  padding: 80px 20px;
+  background: #f9f9f9;
+}
+
+.work-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+.work-header h2 {
+  font-size: 2.5rem;
+  color: #0f3d24;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.work-header p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.work-box {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 280px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.work-box:hover {
+  transform: translateY(-5px);
+}
+
+.work-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.work-box:hover img {
+  transform: scale(1.1);
+}
+
+.work-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 30px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.work-box:hover .work-overlay {
+  opacity: 1;
+}
+
+.work-overlay h3 {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+
+.work-box:hover .work-overlay h3 {
+  transform: translateY(0);
+}
+
+/* ===== 📱 Responsive ===== */
+@media (max-width: 900px) {
+  .our-work {
+    padding: 60px 20px;
+  }
+
+  .work-header h2 {
+    font-size: 2rem;
+  }
+
+  .work-header p {
+    font-size: 1rem;
+  }
+
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .work-box {
+    height: 250px;
+  }
+
+  .work-overlay h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .work-box {
+    height: 180px;
+  }
+
+  .work-overlay h3 {
+    font-size: 1rem;
+  }
+
+  .work-overlay {
+    padding: 20px;
+  }
+}

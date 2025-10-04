@@ -1,0 +1,189 @@
+/* ===== Collection Section ===== */
+.collection {
+  padding: 100px 20px;
+  background: #0f3d24;
+  color: #fff;
+  overflow: hidden;
+}
+
+.collection-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  transition: all 0.6s ease;
+}
+
+/* عكس الترتيب في العربي */
+body.ar .collection-container {
+  flex-direction: row-reverse;
+}
+
+/* النص */
+.collection-text {
+  flex: 1;
+  min-width: 320px;
+}
+
+.collection-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.collection-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #f3f3f3;
+}
+
+.collection-btn {
+  background: transparent;
+  border: 2px solid #fff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.collection-btn:hover {
+  background: #fff;
+  color: #0f3d24;
+}
+
+/* الصور */
+.collection-images {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* العربي */
+body.ar .collection-images {
+  justify-content: flex-end;
+}
+
+.collection-images img:first-child {
+  width: 75%;
+  max-width: 640px;
+  min-width: 520px;
+  border-radius: 12px;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.collection-images img:last-child {
+  position: absolute;
+  bottom: -24px;
+  right: -40px;
+  width: 35%;
+  max-width: 320px;
+  border-radius: 12px;
+  z-index: 2;
+  transition: transform 0.35s ease;
+}
+
+.collection-images img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== 📱 موبايل ===== */
+@media (max-width: 900px) {
+  .collection {
+    padding: 60px 20px;
+  }
+
+  .collection-container {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  /* النص */
+  .collection-text {
+    order: 1;
+    min-width: 100%;
+  }
+
+  .collection-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+
+  .collection-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  /* الصور */
+  .collection-images {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    position: relative;
+  }
+
+  /* الصورة الكبيرة */
+  .collection-images img:first-child {
+    width: 85%;
+    max-width: 100%;
+    min-width: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  /* الصورة الصغيرة - تطلع من جنب الصورة الكبيرة */
+  .collection-images img:last-child {
+    position: absolute;
+    width: 45%;
+    max-width: 180px;
+    bottom: -20px;
+    left: -10px;
+    right: auto;
+    transform: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  /* للعربي */
+  body.ar .collection-images img:last-child {
+    left: auto;
+    right: -10px;
+  }
+
+  .collection-btn {
+    margin-top: 10px;
+    width: auto;
+    display: inline-block;
+  }
+}
+
+/* موبايل صغير جداً */
+@media (max-width: 480px) {
+  .collection-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .collection-images img:first-child {
+    width: 90%;
+  }
+
+  .collection-images img:last-child {
+    width: 40%;
+    max-width: 150px;
+    bottom: -15px;
+  }
+}

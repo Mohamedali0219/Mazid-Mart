@@ -1,0 +1,105 @@
+/* ===== Fonts Setup ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap');
+
+/* ===== Reset CSS ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", "Cairo", sans-serif;
+  background: #ffffff;
+  color: #222;
+  line-height: 1.6;
+}
+
+
+/* ===== Language Specific ===== */
+body.ar {
+  direction: rtl;
+  text-align: right;
+  font-family: "Cairo", Tahoma, sans-serif;
+}
+
+body.en {
+  direction: ltr;
+  text-align: left;
+  font-family: "Dancing Script", cursive;  /* ✅ نفس خط MazidMart */
+
+}
+
+/* ===== Containers ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 80px 20px;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0f3d24;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #0f3d24;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #145a35;
+}
+
+.btn span {
+  font-family: inherit;
+}
+
+/* ===== Utilities ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 600;
+  color: inherit;
+}
+
+p {
+  font-family: inherit;
+  color: inherit;
+}

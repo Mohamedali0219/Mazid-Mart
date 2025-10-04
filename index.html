@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MazidMart</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/collection.css">
+  <link rel="stylesheet" href="css/choose.css">
+  <link rel="stylesheet" href="css/service.css">
+  <link rel="stylesheet" href="css/work.css">
+  <link rel="stylesheet" href="css/discover_section.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <!-- Overlay للموبايل -->
+  <div class="overlay" id="overlay"></div>
+
+<!-- Header -->
+<header class="header">
+  <div class="logo">
+    <img src="images/MazidMartLogo.png" alt="MazidMart Logo">
+  </div>    
+
+  <!-- زر الموبايل -->
+  <button class="menu-toggle" id="menu-toggle">☰</button>
+
+  <nav class="nav" id="nav-menu">
+    <a href="#home" data-key="home">Home</a>
+    <a href="#about" data-key="about">About</a>
+    <a href="#services" data-key="services">Services</a>
+    <a href="#work" data-key="work">Work</a>
+    <a href="#contact" data-key="contact">Contact</a>
+  </nav>
+
+  <div class="actions">
+    <button id="lang-btn" class="btn">
+      🌐 <span>English</span>
+    </button>
+  </div>
+</header>
+
+<!-- Overlay للموبايل -->
+<div class="overlay" id="overlay"></div>
+
+  <!-- ✅ Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-slider">
+      <div class="slide active" style="background-image: url('images/slide1.png');"></div>
+      <div class="slide" style="background-image: url('images/slide2.png');"></div>
+      <div class="slide" style="background-image: url('images/slide3.png');"></div>
+      <div class="slide" style="background-image: url('images/slide4.png');"></div>
+    </div>
+    <div class="hero-content">
+      <h1 data-key="hero_title">MazidMart – Crafted Silver Elegance</h1>
+      <p data-key="hero_desc">Authentic silver jewelry and complete services from design to delivery.</p>
+      <a href="#work" class="btn hero-btn" data-key="hero_btn">Explore Our Silver Work</a>
+    </div>
+  </section>
+
+  <!-- ✅ About Section -->
+  <section class="about-stats" id="about">
+    <div class="container">
+      <div class="about-icon">
+        <img src="images/MazidMartLogo.png" alt="MazidMart Logo">
+      </div>
+      <h2 class="section-title" data-key="about_title">World of Silver Elegance</h2>
+      <p class="section-desc" data-key="about_desc">
+        At MazidMart, we bring a legacy of craftsmanship and elegance in every silver piece. 
+        From rings to accessories, our passion is to deliver timeless jewelry that adds sparkle to your life.
+      </p>
+      <div class="about-signature">
+        <p class="sign">MazidMart</p>
+        <span data-key="about_sub">Silver Jewelry</span>
+      </div>
+      <div class="stats-grid">
+        <div class="stat">
+          <h3>15+</h3>
+          <p data-key="about_years">Years of Experience</p>
+        </div>
+        <div class="stat">
+          <h3>40+</h3>
+          <p data-key="about_awards">Awards</p>
+        </div>
+        <div class="stat">
+          <h3>1,200+</h3>
+          <p data-key="about_clients">Happy Clients</p>
+        </div>
+        <div class="stat">
+          <h3>300+</h3>
+          <p data-key="sale_process">Sale Process</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ✅ Collection Section -->
+    <section class="collection" id="collection">
+    <div class="collection-container">
+        <div class="collection-text">
+        <h2 data-key="collection_title">Elegant Silver Collection</h2>
+        <p data-key="collection_desc">
+            At MazidMart, we bring you elegant silver rings and accessories with modern designs
+            and premium quality. We also provide stylish boxes with refined materials
+            to make your gift more valuable and elegant.
+        </p>
+        <a href="#work" class="collection-btn" data-key="collection_btn">Shop Now</a>
+        </div>
+
+        <div class="collection-images">
+        <img src="images/collection/collection1.png" alt="Silver Ring" />
+        <img src="images/collection/collection2.png" alt="Silver Bracelet" />
+        </div>
+    </div>
+    </section>
+
+  <!-- ✅ Choose Us Section -->
+  <section class="why-choose-us">
+    <div class="container">
+      <div class="features">
+        <h2 data-key="choose_title">Why Choose Us</h2>
+        <p class="subtitle" data-key="choose_subtitle">Phasellus ullamcorper odio vitae eleifend ultricies.</p>
+        <div class="features-grid">
+          <div class="feature-box">
+            <div>
+              <h3 data-key="choose_fast">FAST SHIPPING</h3>
+              <p data-key="choose_fast_desc">Orders Over $500</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div>
+              <h3 data-key="choose_payment">QUICK PAYMENT</h3>
+              <p data-key="choose_payment_desc">100% Secure</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div>
+              <h3 data-key="choose_cashback">BIG CASHBACK</h3>
+              <p data-key="choose_cashback_desc">Over 40% Cashback</p>
+            </div>
+          </div>
+          <div class="feature-box">
+            <div>
+              <h3 data-key="choose_support">24/7 SUPPORT</h3>
+              <p data-key="choose_support_desc">Ready For You</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="promo">
+        <div class="promo-card">
+          <img src="images/slide1.png" alt="Discover Collection">
+          <div class="overlay">
+            <span class="tag" data-key="card1_tag">New Arrival</span>
+            <h3 data-key="card1_title">Discover New Collection</h3>
+          </div>
+        </div>
+        <div class="promo-card">
+          <img src="images/slide2.png" alt="Personalise Jewelry">
+          <div class="overlay">
+            <span class="tag" data-key="card2_tag">Engraving</span>
+            <h3 data-key="card2_title">Personalise Your Creation</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Discover Collection Section -->
+<section class="discover-collection">
+  <img src="images/slide2.png" alt="Silver Collection Background" class="discover-bg">
+  <div class="discover-overlay">
+    <h2 data-key="discover_title">Discover The Collection</h2>
+    <p data-key="discover_desc">Explore our finest silver jewelry pieces, handcrafted with precision and designed to add elegance to every occasion.</p>
+    <a href="#work" class="discover-btn" data-key="discover_btn">SHOP NOW</a>
+    <div class="discover-signature">MazidMart</div>
+  </div>
+</section>
+
+
+  <!-- ✅ Services Section -->
+<section class="services" id="services">
+  <h2 class="section-title" data-key="services_title">What We Offer</h2>
+  <div class="services-grid">
+
+    <a href="#" class="service-card" aria-label="Learn more about Custom Silver Jewelry">
+      <div class="service-content">
+        <div class="service-icon"><i class="fas fa-pencil-alt"></i></div> 
+        <h3 data-key="service1_title">Custom Silver Jewelry</h3>
+        <p data-key="service1_desc">Design your unique piece with our expert artisans.</p>
+        <button class="cta-button" data-key="btn_design">Start Designing</button>
+      </div>
+      <div class="service-image">
+        <img src="images/services/service1.png" alt="Custom Silver Jewelry">
+      </div>
+    </a>
+
+    <a href="#" class="service-card reverse" aria-label="Get a quote for Repair & Polishing">
+      <div class="service-content">
+        <div class="service-icon"><i class="fas fa-hammer"></i></div> 
+        <h3 data-key="service2_title">Repair & Polishing</h3>
+        <p data-key="service2_desc">Restore and maintain the beauty of your silver jewelry.</p>
+        <button class="cta-button" data-key="btn_quote">Get a Quote</button>
+      </div>
+      <div class="service-image">
+        <img src="images/services/service2.png" alt="Repair & Polishing">
+      </div>
+    </a>
+
+    <a href="#" class="service-card" aria-label="Inquire about Wholesale & Bulk Orders">
+      <div class="service-content">
+        <div class="service-icon"><i class="fas fa-box"></i></div> 
+        <h3 data-key="service3_title">Wholesale & Bulk Orders</h3>
+        <p data-key="service3_desc">Large-scale orders with competitive pricing.</p>
+        <button class="cta-button" data-key="btn_sales">Contact Sales</button>
+      </div>
+      <div class="service-image">
+        <img src="images/services/service3.png" alt="Wholesale & Bulk Orders">
+      </div>
+    </a>
+
+    <a href="#" class="service-card reverse" aria-label="Explore Corporate & Gift Solutions">
+      <div class="service-content">
+        <div class="service-icon"><i class="fas fa-gift"></i></div> 
+        <h3 data-key="service4_title">Corporate & Gift Solutions</h3>
+        <p data-key="service4_desc">Elegant gifts for your business partners and employees.</p>
+        <button class="cta-button" data-key="btn_options">See Options</button>
+      </div>
+      <div class="service-image">
+        <img src="images/services/service4.png" alt="Corporate & Gift Solutions">
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ✅ Our Work Section -->
+<section class="our-work" id="work">
+  <div class="work-header">
+    <h2 data-key="work_title">Our Work</h2>
+    <p data-key="work_subtitle">A showcase of our finest silver jewelry and elegant accessories.</p>
+  </div>
+
+  <div class="work-grid">
+    <!-- Rings -->
+    <div class="work-box">
+      <img src="images/work/Rings.png" alt="Silver Rings">
+      <div class="work-overlay">
+        <h3 data-key="category_rings">Rings</h3>
+      </div>
+    </div>
+
+    <!-- Necklaces -->
+    <div class="work-box">
+      <img src="images/work/Necklaces.png" alt="Silver Necklaces">
+      <div class="work-overlay">
+        <h3 data-key="category_necklaces">Necklaces</h3>
+      </div>
+    </div>
+
+    <!-- Bracelets -->
+    <div class="work-box">
+      <img src="images/work/Bracelets.png" alt="Silver Bracelets">
+      <div class="work-overlay">
+        <h3 data-key="category_bracelets">Bracelets</h3>
+      </div>
+    </div>
+
+    <!-- Earrings -->
+    <div class="work-box">
+      <img src="images/work/Earrings.png" alt="Silver Earrings">
+      <div class="work-overlay">
+        <h3 data-key="category_earrings">Earrings</h3>
+      </div>
+    </div>
+
+    <!-- Anklets -->
+    <div class="work-box">
+      <img src="images/work/Anklets.png" alt="Silver Anklets">
+      <div class="work-overlay">
+        <h3 data-key="category_anklets">Anklets</h3>
+      </div>
+    </div>
+
+    <!-- Silver Bars -->
+    <div class="work-box">
+      <img src="images/work/Silver_Bars.png" alt="Silver Bars">
+      <div class="work-overlay">
+        <h3 data-key="category_bars">Silver Bars</h3>
+      </div>
+    </div>
+
+    <!-- Silver Sets -->
+    <div class="work-box">
+      <img src="images/work/Silver_Sets.png" alt="Silver Sets">
+      <div class="work-overlay">
+        <h3 data-key="category_sets">Silver Sets</h3>
+      </div>
+    </div>
+
+    <!-- Custom Pieces -->
+    <div class="work-box">
+      <img src="images/work/Custom_Pieces.png" alt="Custom Silver Pieces">
+      <div class="work-overlay">
+        <h3 data-key="category_custom">Custom Pieces</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- ✅ Contact Section --> 
+  <section class="mazid-contact" id="contact">
+    <div class="mazid-contact-container">
+        
+        <img 
+          src="images/MazidMartLogo.png" 
+          alt="Decorative Pattern" 
+          class="mazid-contact-decoration"
+        >
+        
+        <h2 class="mazid-contact-title" data-key="contact_title">Contact Us</h2>
+        <p class="mazid-contact-subtitle" data-key="contact_subtitle">
+          Get in touch with Mr. Mahmud El Mazed for all your inquiries.
+        </p>
+        
+        <div class="mazid-contact-grid">
+            
+            <div class="mazid-contact-card">
+                <div class="mazid-contact-icon"><i class="fas fa-phone-alt"></i></div>
+                <h3 data-key="contact_phone1_label">Phone Number</h3>
+                <p class="mazid-contact-info" dir="ltr">+971556571212</p>
+                <a href="tel:+971556571212" class="cta-button mazid-contact-btn" data-key="btn_call">Call Now</a>
+            </div>
+            
+            <div class="mazid-contact-card">
+                <div class="mazid-contact-icon"><i class="fas fa-envelope"></i></div>
+                <h3 data-key="contact_email_label">Email Address</h3>
+                <p class="mazid-contact-info">mazidmart.ae@gmail.com</p>
+                <a href="mailto:mazidmart.ae@gmail.com" class="cta-button mazid-contact-btn" data-key="btn_email">Send Email</a>
+            </div>
+            
+            <div class="mazid-contact-card">
+                <div class="mazid-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h3 data-key="contact_address_label">Location</h3>
+                <p class="mazid-contact-info" data-key="contact_address_value">Sharjah media city, Sharjah, UAE</p>
+                <a href="https://maps.app.goo.gl/YourMapLink" target="_blank" class="cta-button mazid-contact-btn" data-key="btn_map">View Map</a>
+            </div>
+            
+            <div class="mazid-contact-card">
+                <div class="mazid-contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <h3 data-key="contact_phone2_label">WhatsApp</h3>
+                <p class="mazid-contact-info" dir="ltr">+971555501925</p>
+                <a href="https://wa.me/971555501925" target="_blank" class="cta-button mazid-contact-btn whats-app-btn" data-key="btn_whatsapp">Chat Now</a>
+            </div>
+            
+        </div>
+        
+    </div>
+  </section>
+
+
+  <!-- JS -->
+  <script src="js/lang.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/slider.js" defer></script>
+  <script src="js/scroll.js" defer></script>
+  <script src="js/animation.js" defer></script>
+</body>
+</html>

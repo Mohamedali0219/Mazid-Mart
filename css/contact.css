@@ -1,0 +1,219 @@
+/* ===== MazidMart CONTACT SECTION (Green Theme / Isolated & Fixed Fonts) ===== */
+
+.mazid-contact {
+  background: #0f3d24;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ✅ Logo watermark */
+.mazid-contact-decoration {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  transform: translateX(10%) translateY(10%);
+  width: 320px;
+  height: 320px;
+  opacity: 0.08;
+  pointer-events: none;
+  object-fit: contain;
+}
+
+/* RTL fix for logo */
+body.ar .mazid-contact-decoration {
+  left: 0;
+  right: auto;
+  transform: translateX(-10%) translateY(10%);
+}
+
+/* Main container */
+.mazid-contact-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+
+/* Titles */
+.mazid-contact-title {
+  font-size: 2.6rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.mazid-contact-subtitle {
+  color: #d9e4de;
+  font-size: 1.1rem;
+  margin: 0 auto 50px;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* Grid layout */
+.mazid-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+/* Cards */
+.mazid-contact-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 35px 25px;
+  border: none;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.mazid-contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon */
+.mazid-contact-icon {
+  font-size: 2.2rem;
+  color: #0f3d24;
+  margin-bottom: 15px;
+}
+
+/* Card title */
+.mazid-contact-card h3 {
+  font-size: 1.2rem;
+  color: #0f3d24;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* Info text */
+.mazid-contact-info {
+  color: #444;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.mazid-contact-btn {
+  background: transparent;
+  border: 2px solid #0f3d24;
+  color: #0f3d24;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  font-family: inherit;
+}
+
+.mazid-contact-btn:hover {
+  background: #0f3d24;
+  color: #fff;
+  transform: scale(1.03);
+  text-decoration: none;
+  font-family: inherit;
+}
+
+/* WhatsApp special */
+.whats-app-btn {
+  background-color: #25d366;
+  color: white;
+  border-color: #25d366;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.whats-app-btn:hover {
+  background-color: #128c7e;
+  border-color: #128c7e;
+  color: #fff;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+/* ✅ Fix font switching on hover */
+.mazid-contact-btn,
+.mazid-contact-btn:hover,
+.whats-app-btn,
+.whats-app-btn:hover {
+  font-family: inherit !important;
+}
+
+/* ===== RESPONSIVENESS ===== */
+@media (max-width: 992px) {
+  .mazid-contact {
+    padding: 80px 15px;
+  }
+
+  .mazid-contact-title {
+    font-size: 2.2rem;
+  }
+
+  .mazid-contact-subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .mazid-contact-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mazid-contact {
+    padding: 70px 15px;
+  }
+
+  .mazid-contact-title {
+    font-size: 1.9rem;
+  }
+
+  .mazid-contact-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 35px;
+  }
+
+  .mazid-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .mazid-contact-card {
+    max-width: 100%;
+    padding: 25px 20px;
+  }
+
+  .mazid-contact-icon {
+    font-size: 2rem;
+  }
+
+  .mazid-contact-decoration {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mazid-contact-decoration {
+    display: none;
+  }
+}
+
+/* RTL font fix */
+body.ar .mazid-contact-title,
+body.ar .mazid-contact-subtitle,
+body.ar .mazid-contact-card h3 {
+  font-family: 'Cairo', sans-serif;
+}

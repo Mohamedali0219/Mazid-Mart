@@ -1,0 +1,220 @@
+/* ===== Services Section - FINAL UPDATED CSS (RTL, Green Title, New Buttons) ===== */
+
+/* Base Styles */
+.services {
+  background: #f4f4f4; 
+  padding: 80px 20px; 
+  text-align: center;
+}
+
+/* Section Title Styling */
+.section-title {
+    color: #0d281a; 
+    font-size: 2.5rem; 
+    font-weight: bold;
+    margin-bottom: 40px; 
+    letter-spacing: 1px;
+}
+
+.services-grid {
+  max-width: 1200px; 
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 30px; 
+}
+
+/* Service Card Layout (Mobile-First: Stacked) */
+.service-card {
+  display: flex;
+  flex-direction: column; 
+  align-items: stretch;
+  background: #ffffff; 
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; 
+}
+
+.service-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
+}
+
+.service-content {
+  flex: 1; 
+  padding: 25px; 
+  text-align: left; /* LTR default */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  order: 2; 
+}
+
+.service-image {
+  flex: 1;
+  overflow: hidden;
+  min-height: 180px; 
+  order: 1; 
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.95) contrast(1.1); 
+  transition: transform 0.4s ease-in-out;
+}
+
+/* --- RTL (Arabic) Adjustments --- */
+body.ar .service-content {
+    text-align: right; /* Align content to the right */
+}
+
+body.ar .cta-button {
+    align-self: stretch; /* Full width on mobile remains */
+}
+/* --- End RTL Adjustments --- */
+
+
+/* Content Typography */
+.service-icon {
+    color: #0f3d24; 
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.service-content h3 {
+  font-size: 1.5rem;
+  color: #0d281a;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.service-content p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* --- UPDATED Button Styling --- */
+.cta-button {
+  /* Inactive State: White background, Dark border (matching image 4ebe3a.png) */
+  background-color: #ffffff; 
+  color: #0f3d24; /* NEW: Dark Green text */
+  border: 2px solid #0f3d24; /* NEW: Dark Green border */
+  
+  padding: 12px 25px; 
+  border-radius: 6px; /* NEW: Reduced radius */
+  font-weight: 600; 
+  font-size: 1rem; 
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, 
+              transform 0.1s ease, border-color 0.3s ease;
+  align-self: stretch; 
+  text-transform: uppercase; 
+  letter-spacing: 0.8px; 
+  outline: none; 
+}
+
+/* Active State (Hover/Focus): Dark background, white text (matching image 4ebe3c.png) */
+.cta-button:hover,
+.cta-button:focus { 
+  background-color: #0f3d24; /* Dark Green fill */
+  color: #ffffff; /* White text */
+  border-color: #0f3d24; 
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    font-family: "Dancing Script", cursive;
+
+
+}
+
+.cta-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+/* --- END Button Styling --- */
+
+
+/* 4. Media Query for Tablets and Desktops */
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 40px 30px;
+  }
+
+  .service-card {
+    flex-direction: row; /* Side-by-side LTR default */
+  }
+  
+  .service-content {
+      order: 1;
+      padding: 30px;
+  }
+  
+  .service-image {
+      order: 2;
+      min-height: 250px; 
+  }
+
+  /* Alternating layout for LTR */
+  .service-card.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .service-card.reverse .service-content {
+      order: 2;
+  }
+  
+  .service-card.reverse .service-image {
+      order: 1;
+  }
+  
+  .cta-button {
+    align-self: flex-start; /* Button aligned left in LTR */
+  }
+  
+  /* --- RTL (Arabic) Desktop Adjustments --- */
+  body.ar .service-card {
+      flex-direction: row-reverse; /* Flip default order for RTL */
+  }
+  
+  body.ar .service-content {
+      text-align: right;
+      order: 2; /* Content on the right */
+  }
+  
+  body.ar .service-image {
+      order: 1; /* Image on the left */
+  }
+  
+  body.ar .service-card.reverse {
+      flex-direction: row; /* Flip reversed card back to default LTR order */
+  }
+  
+  body.ar .service-card.reverse .service-content {
+      order: 1; /* Content on the left */
+  }
+  
+  body.ar .service-card.reverse .service-image {
+      order: 2; /* Image on the right */
+  }
+  
+  body.ar .cta-button {
+    align-self: flex-end; /* Button aligned right in RTL */
+  }
+  /* --- End RTL Desktop Adjustments --- */
+}
+
+/* Media Query for Title on very small screens */
+@media (max-width: 600px) {
+    .section-title {
+        font-size: 2rem; 
+        margin-bottom: 30px;
+    }
+}
