@@ -1,0 +1,129 @@
+/* ===== Fixed Action Buttons (WhatsApp & Call) - FINAL CSS (Corrected) ===== */
+
+/* 1. Animation Keyframes */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(75, 106, 90, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 15px rgba(75, 106, 90, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(75, 106, 90, 0);
+    }
+}
+
+.fixed-actions-wrapper {
+    z-index: 10000; 
+}
+
+.action-icon {
+    position: fixed;
+    bottom: 30px; 
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+    /* Center the img element inside the button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* 2. Style for the Image inside the button */
+.action-img {
+    object-fit: contain;
+}
+
+/* 3. WhatsApp Button (Right Side) - With Pulse Animation */
+.whatsapp-action {
+    right: 30px; 
+    background-color: #25d366; 
+    
+    width: 60px;
+    height: 60px;
+    
+    /* Apply animation */
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-action .action-img {
+    width: 35px;
+    height: 35px;
+}
+
+/* 4. Call Button (Left Side) - Blue Button */
+.call-action {
+    left: 30px; 
+    background-color: #007bff;
+    
+    width: 50px;
+    height: 50px;
+    
+    /* No animation by default */
+    animation: none; 
+}
+
+.call-action .action-img {
+    width: 24px;
+    height: 24px;
+}
+
+/* --- Responsive & RTL Adjustments --- */
+
+/* Apply pulse animation to Call button only when in RTL mode */
+body.ar .call-action {
+    animation: pulse 2s infinite;
+}
+
+/* Remove pulse animation from WhatsApp button when in RTL mode */
+body.ar .whatsapp-action {
+    animation: none;
+}
+
+/* RTL Positioning */
+body.ar .whatsapp-action {
+    left: 30px; 
+    right: auto;
+}
+
+body.ar .call-action {
+    right: 30px; 
+    left: auto;
+}
+
+@media (max-width: 600px) {
+    .action-icon {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+    }
+    
+    .whatsapp-action {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+    }
+    
+    .call-action {
+        left: 20px;
+    }
+
+    body.ar .whatsapp-action {
+        left: 20px;
+        right: auto;
+    }
+    body.ar .call-action {
+        right: 20px;
+        left: auto;
+    }
+}

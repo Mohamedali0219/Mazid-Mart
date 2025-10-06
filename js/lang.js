@@ -90,6 +90,8 @@ const translations = {
     btn_email: "Send Email",
     btn_map: "View Map",
     btn_whatsapp: "Chat Now",
+    // ✅ NEW FOOTER KEY
+    footer_copyright: "© 2025 MazidMart. All rights reserved. Website designed by Qimatrix.",
   },
   ar: {
     // Navbar and General
@@ -178,6 +180,8 @@ const translations = {
     btn_email: "أرسل بريداً",
     btn_map: "عرض الموقع",
     btn_whatsapp: "ابدأ الدردشة",
+    // ✅ NEW FOOTER KEY
+    footer_copyright: "© 2025 مزيد مارت. جميع الحقوق محفوظة. تم تصميم الموقع بواسطة قيماتركس.",
   }
 };
 
@@ -220,3 +224,4 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+

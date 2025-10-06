@@ -1,0 +1,17 @@
+/* ===== Footer Section ===== */
+.footer {
+    background-color: #ffffff; /* Changed background to white */
+    color: #0f3d24; /* Changed text color to your brand's dark green */
+    padding: 15px;
+    text-align: center;
+}
+
+.copyright-text {
+    font-size: 0.9rem;
+    color: #0f3d24; /* Changed text color to your brand's dark green */
+}
+
+/* RTL Adjustments for Arabic */
+body.ar .copyright-text {
+    font-family: 'Cairo', sans-serif;
+}
