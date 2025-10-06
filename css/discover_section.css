@@ -84,46 +84,64 @@
   margin-top: 30px;
 }
 
-/* ===== 📱 Responsive ===== */
+/* ===== 📱 Responsive (Fixed) ===== */
+
 @media (max-width: 768px) {
   .discover-collection {
     height: 400px;
+    margin: 60px 0; /* Adjusted margin for better spacing */
+  }
+
+  /* Make the content more compact */
+  .discover-overlay {
+    padding: 30px 15px; /* Reduced padding on all sides */
   }
 
   .discover-overlay h2 {
-    font-size: 2.2rem;
+    font-size: 2rem; /* Reduced font size */
+    margin-bottom: 15px; /* Reduced margin */
   }
 
   .discover-overlay p {
-    font-size: 1rem;
-    margin-bottom: 24px;
+    font-size: 0.95rem; /* Reduced font size for better readability */
+    margin-bottom: 20px; /* Reduced margin */
   }
 
   .discover-btn {
-    padding: 12px 32px;
-    font-size: 0.9rem;
-    margin-bottom: 30px;
+    padding: 10px 28px; /* Reduced padding */
+    font-size: 0.85rem; /* Reduced font size */
+    margin-bottom: 20px; /* Reduced margin */
   }
 
   .discover-signature {
-    font-size: 2.2rem;
+    font-size: 2rem; /* Reduced font size */
+    margin-top: 20px; /* Reduced top margin */
   }
 }
 
 @media (max-width: 480px) {
   .discover-collection {
-    height: 350px;
+    height: 320px; /* Reduced height further for smaller phones */
+  }
+
+  .discover-overlay {
+    padding: 20px 10px; /* Reduced padding */
   }
 
   .discover-overlay h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .discover-overlay p {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+  }
+
+  .discover-btn {
+    padding: 8px 20px;
+    font-size: 0.8rem;
   }
 
   .discover-signature {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 }
