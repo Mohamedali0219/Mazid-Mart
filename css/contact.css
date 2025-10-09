@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-/* ✅ Logo watermark */
+/* Logo watermark */
 .mazid-contact-decoration {
   position: absolute;
   z-index: 1;
@@ -37,7 +37,7 @@ body.ar .mazid-contact-decoration {
   z-index: 5;
 }
 
-/* Titles */
+/* Title */
 .mazid-contact-title {
   font-size: 2.6rem;
   color: #ffffff;
@@ -143,7 +143,7 @@ body.ar .mazid-contact-decoration {
   font-family: inherit;
 }
 
-/* ✅ Fix font switching on hover */
+/* Fix font switching on hover */
 .mazid-contact-btn,
 .mazid-contact-btn:hover,
 .whats-app-btn,
@@ -186,17 +186,35 @@ body.ar .mazid-contact-decoration {
   }
 
   .mazid-contact-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px; /* Reduced gap for smaller screens */
+    align-items: stretch; /* Make items the same height */
   }
 
   .mazid-contact-card {
     max-width: 100%;
-    padding: 25px 20px;
+    padding: 20px 15px; /* Reduced padding */
+    height: 100%; /* Make cards fill the grid cell height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out content nicely */
+  }
+
+  /* Reduced font sizes for better fit on small screens */
+  .mazid-contact-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .mazid-contact-info {
+    font-size: 0.9rem;
+  }
+  
+  .mazid-contact-btn {
+    font-size: 0.85rem;
   }
 
   .mazid-contact-icon {
-    font-size: 2rem;
+    font-size: 1.8rem; /* Reduced icon size */
   }
 
   .mazid-contact-decoration {
