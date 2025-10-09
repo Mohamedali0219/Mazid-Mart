@@ -187,34 +187,37 @@ body.ar .mazid-contact-decoration {
 
   .mazid-contact-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px; /* Reduced gap for smaller screens */
-    align-items: stretch; /* Make items the same height */
+    gap: 15px;
+    align-items: stretch;
   }
-
+  
   .mazid-contact-card {
     max-width: 100%;
-    padding: 20px 15px; /* Reduced padding */
-    height: 100%; /* Make cards fill the grid cell height */
+    padding: 25px 15px; /* Adjusted padding */
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Space out content nicely */
+    justify-content: space-between;
   }
-
-  /* Reduced font sizes for better fit on small screens */
+  
   .mazid-contact-card h3 {
-    font-size: 1.1rem;
+    font-size: 1rem; /* Reduced font size */
+    line-height: 1.3;
   }
   
   .mazid-contact-info {
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Reduced font size */
+    line-height: 1.4;
+    flex-grow: 1;
   }
   
   .mazid-contact-btn {
-    font-size: 0.85rem;
+    font-size: 0.75rem; /* Reduced font size */
+    padding: 8px 16px; /* Adjusted button padding */
   }
 
   .mazid-contact-icon {
-    font-size: 1.8rem; /* Reduced icon size */
+    font-size: 1.8rem;
   }
 
   .mazid-contact-decoration {
