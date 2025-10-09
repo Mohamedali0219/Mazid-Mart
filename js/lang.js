@@ -80,7 +80,7 @@ const translations = {
     // ✅ NEW CONTACT SECTION
     contact_title: "Contact Us",
     contact_subtitle: "Get in touch with Mr. Mahmud El Mazed for all your inquiries.",
-    contact_phone1_label: "Phone Number",
+    contact_phone1_label: "Phone",
     contact_phone2_label: "WhatsApp",
     contact_email_label: "Email Address",
     contact_address_label: "Location",
@@ -176,7 +176,7 @@ const translations = {
     contact_address_label: "الموقع",
     contact_address_value: "مدينة الشارقة للإعلام، الشارقة، الإمارات",
     // ✅ NEW CONTACT BUTTONS
-    btn_call: "اتصل الآن",
+    btn_call: "الهاتف",
     btn_email: "أرسل بريداً",
     btn_map: "عرض الموقع",
     btn_whatsapp: "ابدأ الدردشة",
