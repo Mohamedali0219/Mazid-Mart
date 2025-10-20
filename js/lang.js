@@ -39,6 +39,7 @@ const translations = {
     // Work Section
     work_title: "Our Work",
     work_subtitle: "A showcase of our finest silver jewelry and elegant accessories.",
+    work_cta: "Click to learn more",
     // About Section
     about_title: "World of Silver Elegance",
     about_desc: "At MazidMart, we bring a legacy of craftsmanship and elegance in every silver piece. From rings to accessories, our passion is to deliver timeless jewelry that adds sparkle to your life.",
@@ -128,7 +129,8 @@ const translations = {
     btn_options: "استعرض الخيارات",
     // Work Section
     work_title: "أعمالنا",
-    work_subtitle: "عرض لأفضل مجوهراتنا الفضية والإكسسوارات الأنيقة.",
+    work_subtitle: "عرض لأجود مجوهراتنا الفضية والإكسسوارات الأنيقة.",
+    work_cta: "انقر للتعرف على المزيد",
     // About Section
     about_title: "عالم أناقة الفضة",
     about_desc: "في مزيد مارت، نقدم تراثًا من الحرفية والأناقة في كل قطعة فضة. من الخواتم إلى الإكسسوارات، شغفنا هو تقديم مجوهرات خالدة تضيف لمسة من البريق إلى حياتك.",

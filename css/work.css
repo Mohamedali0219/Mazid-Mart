@@ -63,11 +63,13 @@
   height: 100%;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   padding: 30px;
   opacity: 0;
   transition: opacity 0.4s ease;
+  text-align: center;
 }
 
 .work-box:hover .work-overlay {
@@ -80,9 +82,24 @@
   font-weight: 600;
   transform: translateY(20px);
   transition: transform 0.4s ease;
+  margin-bottom: 8px;
 }
 
 .work-box:hover .work-overlay h3 {
+  transform: translateY(0);
+}
+
+.work-cta {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.9;
+  transform: translateY(20px);
+  transition: transform 0.4s ease 0.1s;
+  margin: 0;
+}
+
+.work-box:hover .work-cta {
   transform: translateY(0);
 }
 
