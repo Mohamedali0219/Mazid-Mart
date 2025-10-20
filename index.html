@@ -244,78 +244,72 @@
   </section>
 
   <!-- ✅ Our Work Section -->
-  <section class="our-work" id="work">
-    <div class="work-header">
-      <h2 data-key="work_title">Our Work</h2>
-      <p data-key="work_subtitle">A showcase of our finest silver jewelry and elegant accessories.</p>
-    </div>
+<section class="our-work" id="work">
+  <div class="work-header">
+    <h2 data-key="work_title">Our Work</h2>
+    <p data-key="work_subtitle">
+      A showcase of our finest silver jewelry and elegant accessories.
+    </p>
+  </div>
 
-    <div class="work-grid">
-      <!-- Rings -->
-      <div class="work-box">
-        <img src="images/work/Rings.png" alt="Silver Rings">
-        <div class="work-overlay">
-          <h3 data-key="category_rings">Rings</h3>
-        </div>
-      </div>
-
-      <!-- Necklaces -->
-      <div class="work-box">
-        <img src="images/work/Necklaces.png" alt="Silver Necklaces">
-        <div class="work-overlay">
-          <h3 data-key="category_necklaces">Necklaces</h3>
-        </div>
-      </div>
-
-      <!-- Bracelets -->
-      <div class="work-box">
-        <img src="images/work/Bracelets.png" alt="Silver Bracelets">
-        <div class="work-overlay">
-          <h3 data-key="category_bracelets">Bracelets</h3>
-        </div>
-      </div>
-
-      <!-- Earrings -->
-      <div class="work-box">
-        <img src="images/work/Earrings.png" alt="Silver Earrings">
-        <div class="work-overlay">
-          <h3 data-key="category_earrings">Earrings</h3>
-        </div>
-      </div>
-
-      <!-- Anklets -->
-      <div class="work-box">
-        <img src="images/work/Anklets.png" alt="Silver Anklets">
-        <div class="work-overlay">
-          <h3 data-key="category_anklets">Anklets</h3>
-        </div>
-      </div>
-
-      <!-- Silver Bars -->
-      <div class="work-box">
-        <img src="images/work/Silver_Bars.png" alt="Silver Bars">
-        <div class="work-overlay">
-          <h3 data-key="category_bars">Silver Bars</h3>
-        </div>
-      </div>
-
-      <!-- Silver Sets -->
-      <div class="work-box">
-        <img src="images/work/Silver_Sets.png" alt="Silver Sets">
-        <div class="work-overlay">
-          <h3 data-key="category_sets">Silver Sets</h3>
-        </div>
-      </div>
-
-      <!-- Custom Pieces -->
-      <div class="work-box">
-        <img src="images/work/Custom_Pieces.png" alt="Custom Silver Pieces">
-        <div class="work-overlay">
-          <h3 data-key="category_custom">Custom Pieces</h3>
-        </div>
+  <div class="work-grid">
+    <div class="work-box" data-category="Rings">
+      <img src="images/work/Rings.png" alt="Silver Rings">
+      <div class="work-overlay">
+        <h3 data-key="category_rings">Rings</h3>
       </div>
     </div>
-  </section>
+
+    <div class="work-box" data-category="Necklaces">
+      <img src="images/work/Necklaces.png" alt="Silver Necklaces">
+      <div class="work-overlay">
+        <h3 data-key="category_necklaces">Necklaces</h3>
+      </div>
+    </div>
+
+    <div class="work-box" data-category="Bracelets">
+      <img src="images/work/Bracelets.png" alt="Silver Bracelets">
+      <div class="work-overlay">
+        <h3 data-key="category_bracelets">Bracelets</h3>
+      </div>
+    </div>
+
+    <div class="work-box" data-category="Earrings">
+      <img src="images/work/Earrings.png" alt="Silver Earrings">
+      <div class="work-overlay">
+        <h3 data-key="category_earrings">Earrings</h3>
+      </div>
+    </div>
+
+    <div class="work-box" data-category="Anklets">
+      <img src="images/work/Anklets.png" alt="Silver Anklets">
+      <div class="work-overlay">
+        <h3 data-key="category_anklets">Anklets</h3>
+      </div>
+    </div>
+
+    <div class="work-box" data-category="Silver Bars">
+      <img src="images/work/Silver_Bars.png" alt="Silver Bars">
+      <div class="work-overlay">
+        <h3 data-key="category_bars">Silver Bars</h3>
+      </div>
+    </div>
+
+    <div class="work-box" data-category="Silver Sets">
+      <img src="images/work/Silver_Sets.png" alt="Silver Sets">
+      <div class="work-overlay">
+        <h3 data-key="category_sets">Silver Sets</h3>
+      </div>
+    </div>
+
+    <div class="work-box" data-category="Custom Pieces">
+      <img src="images/work/Custom_Pieces.png" alt="Custom Silver Pieces">
+      <div class="work-overlay">
+        <h3 data-key="category_custom">Custom Pieces</h3>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- ✅ Contact Section -->
   <section class="mazid-contact" id="contact">
@@ -392,15 +386,33 @@
   <section class="footer">
       <div class="footer-container">
           <p class="copyright-text" data-key="footer_copyright">
-              © 2025 MazidMart. All rights reserved. Website designed by [Your Company Name].
+              2025 MazidMart. All rights reserved. Website designed by [Your Company Name].
           </p>
       </div>
   </section>
+
+  <!-- Image Slider Modal -->
+  <div id="imageModal" class="modal-slider">
+    <span class="close-btn">&times;</span>
+    <div class="modal-content">
+      <div class="slider-container">
+        <div class="slider-images">
+          <!-- Images will be dynamically inserted here by JavaScript -->
+        </div>
+        <button class="prev-btn">&#10094;</button>
+        <button class="next-btn">&#10095;</button>
+      </div>
+      <div class="slider-caption">
+        <h4 id="sliderTitle">Category Name</h4>
+      </div>
+    </div>
+  </div>
 
   <!-- JS -->
   <script src="js/lang.js" defer></script>
   <script src="js/header.js" defer></script>
   <script src="js/slider.js" defer></script>
   <script src="js/animation.js" defer></script>
+  <script src="js/work_slider.js" defer></script>
 </body>
 </html>

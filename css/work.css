@@ -136,3 +136,223 @@
     padding: 20px;
   }
 }
+
+/* ===== Image Slider Modal Styles (Add this section to work.css) ===== */
+.modal-slider {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1000; /* High z-index to be on top of everything */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    padding: 20px;
+}
+
+/* When modal is shown, use flexbox for centering */
+.modal-slider[style*="display: block"],
+.modal-slider[style*="display:block"] {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    margin: 0;
+    display: block;
+    width: 90%;
+    max-width: 900px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1001; 
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #0f3d24;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    min-height: 500px;
+    max-height: 70vh; 
+    overflow: hidden;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+}
+
+.slider-images {
+    display: flex; /* Makes images line up horizontally */
+    transition: transform 0.5s ease-in-out; /* For sliding animation */
+    height: 100%;
+    align-items: center;
+    direction: ltr; /* Force LTR to prevent RTL from reversing translateX */
+}
+
+.slider-images img {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    max-height: 70vh;
+    object-fit: contain; /* Ensures the whole image is visible */
+    flex-shrink: 0;
+    background-color: #000;
+    display: block;
+}
+
+/* Slider Controls (Prev/Next Buttons) */
+.prev-btn, .next-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    outline: none;
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+    left: auto;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* RTL Support for Arabic */
+body.ar .prev-btn {
+    left: auto;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+body.ar .next-btn {
+    right: auto;
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+/* Slider Caption */
+.slider-caption {
+    padding: 15px;
+    text-align: center;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+}
+
+.slider-caption h4 {
+    margin: 0;
+    color: #0f3d24;
+    font-size: 1.5rem;
+}
+
+
+/* Media Queries for Modal */
+@media (max-width: 768px) {
+    .modal-slider {
+        padding: 10px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .close-btn {
+        top: 5px;
+        right: 15px;
+        font-size: 30px;
+    }
+
+    .prev-btn, .next-btn {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .slider-container {
+        min-height: 300px;
+        max-height: 50vh;
+    }
+
+    .slider-images img {
+        min-height: 250px;
+        max-height: 50vh;
+    }
+
+    .slider-caption h4 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-slider {
+        padding: 5px;
+    }
+
+    .modal-content {
+        width: 98%;
+        max-width: 100%;
+        border-radius: 8px;
+        max-height: 95vh;
+    }
+
+    .close-btn {
+        top: 2px;
+        right: 10px;
+        font-size: 25px;
+    }
+
+    .prev-btn, .next-btn {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .slider-container {
+        min-height: 250px;
+        max-height: 45vh;
+    }
+
+    .slider-images img {
+        min-height: 200px;
+        max-height: 45vh;
+    }
+
+    .slider-caption {
+        padding: 10px;
+    }
+
+    .slider-caption h4 {
+        font-size: 1rem;
+    }
+}
