@@ -1,18 +1,19 @@
-/* ===== Header — Premium Refactored ===== */
+/* ===== Header — Seamless with Hero ===== */
 .header {
   position: fixed;
   top: 0; left: 0; width: 100%;
   z-index: 1000;
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(8px) saturate(1.2);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  transition: background .35s var(--ease, ease), box-shadow .35s var(--ease, ease), border-color .35s;
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  transition: background .35s var(--ease, ease), box-shadow .35s var(--ease, ease), border-color .35s, backdrop-filter .35s;
   box-sizing: border-box;
 }
 .header.scrolled {
-  background: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.96);
   backdrop-filter: blur(12px) saturate(1.2);
-  box-shadow: 0 6px 24px rgba(15,61,36,0.08);
+  box-shadow: 0 4px 20px rgba(15,61,36,0.08);
   border-bottom: 1px solid rgba(15,61,36,0.08);
 }
 .header.scrolled .nav a{ color: #1a1a1a; }

@@ -26,6 +26,13 @@ body.ar {
   text-align: right;
   font-family: "Cairo", Tahoma, sans-serif;
 }
+body.ar *{
+  font-family: "Cairo", Tahoma, sans-serif !important;
+}
+body.ar .sign,
+body.ar .discover-signature{
+  font-family: "Dancing Script", cursive !important;
+}
 
 body.en {
   direction: ltr;

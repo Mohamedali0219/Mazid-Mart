@@ -9,10 +9,14 @@ const translations = {
     work: "Work",
     contact: "Contact",
     langBtn: "عربية",
-    // Hero Section
-    hero_title: "MazidMart – Crafted Silver Elegance",
-    hero_desc: "Authentic silver jewelry and complete services from design to delivery.",
-    hero_btn: "Explore Our Silver Work",
+    // Hero Section — refactored premium
+    hero_title: "MazidMart — Crafted Silver Elegance",
+    hero_desc: "Authentic 925 silver jewelry, handcrafted in the UAE. Explore live collections, premium gift boxes & bespoke services.",
+    hero_btn: "Explore Our Silver Work →",
+    hero_btn2: "Browse Catalog",
+    trust_years: "15+ Years",
+    trust_clients: "1,200+ Happy Clients",
+    trust_sale: "300+ Sale Process",
     // Collection Section
     collection_title: "Elegant Silver Collection",
     collection_desc: "At MazidMart, we bring you a diverse collection of elegant silver jewelry with modern designs and premium quality. From rings and bracelets to necklaces, earrings, wedding bands, and anklets, each piece is crafted with exceptional care. We also provide luxurious gift boxes with refined materials to make your gift more valuable and elegant.",
@@ -102,10 +106,14 @@ const translations = {
     work: "الأعمال",
     contact: "تواصل",
     langBtn: "English",
-    // Hero Section
-    hero_title: "مزيد مارت – أناقة الفضة المصنوعة بإتقان",
-    hero_desc: "مجوهرات فضية أصلية وخدمات متكاملة من التصميم حتى التسليم.",
-    hero_btn: "استكشف أعمالنا الفضية",
+    // Hero Section — refactored premium
+    hero_title: "مزيد مارت — أناقة الفضة المصنوعة بإتقان",
+    hero_desc: "مجوهرات فضية عيار 925 مصنوعة يدوياً في الإمارات. استكشف مجموعاتنا الحية وصناديق الهدايا الفاخرة.",
+    hero_btn: "استكشف أعمالنا الفضية →",
+    hero_btn2: "تصفح الكتالوج",
+    trust_years: "15+ سنة خبرة",
+    trust_clients: "1,200+ عميل سعيد",
+    trust_sale: "300+ عملية بيع",
     // Collection Section
     collection_title: "تشكيلة فضية أنيقة",
     collection_desc: "في مزيد مارت، نقدم لك مجموعة متنوعة من المجوهرات الفضية الأنيقة بتصاميم عصرية وجودة ممتازة. من الخواتم والأساور إلى القلائد والأقراط والدبل والحلقان، كل قطعة مصنوعة بعناية فائقة. كما نوفر صناديق هدايا فاخرة بمواد راقية لجعل هديتك أكثر قيمة وأناقة.",
