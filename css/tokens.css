@@ -1,0 +1,31 @@
+/* ===== Design Tokens — MazidMart Luxury Silver ===== */
+:root {
+  --color-primary: #0f3d24;
+  --color-primary-600: #145a35;
+  --color-primary-800: #0a2a18;
+  --color-accent: #c9a86a;
+  --color-accent-600: #b89452;
+  --color-bg: #faf9f7;
+  --color-surface: #ffffff;
+  --color-surface-2: #f3f1ee;
+  --color-text: #1a1a1a;
+  --color-text-muted: #6b7280;
+  --color-border: #e8e5e0;
+  --color-silver: #c0c0c0;
+  --color-overlay: rgba(15,61,36,0.92);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.10);
+  --shadow-lg: 0 16px 40px rgba(0,0,0,0.14);
+  --container-max: 1280px;
+  --header-h: 64px;
+  --ease: cubic-bezier(.4,0,.2,1);
+  --bp-xs: 480px;
+  --bp-sm: 768px;
+  --bp-md: 1024px;
+  --bp-lg: 1280px;
+  --bp-xl: 1440px;
+}

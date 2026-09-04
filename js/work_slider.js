@@ -1,5 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Get DOM elements
+    // If live catalog is active (api.js + catalog.js loaded), this file only provides slider navigation.
+    // Live categories use data-categoryId and are handled by catalog.js; skip legacy hard-coded logic.
+    if (window.MazidAPI && window.MazidCatalog) {
+      // attach only navigation handlers and exit early for category logic
+      const modalR = document.getElementById('imageModal');
+      const closeBtnR = modalR ? modalR.querySelector('.close-btn') : null;
+      const sliderImagesContainerR = modalR ? modalR.querySelector('.slider-images') : null;
+      const prevBtnR = modalR ? modalR.querySelector('.prev-btn') : null;
+      const nextBtnR = modalR ? modalR.querySelector('.next-btn') : null;
+      let currentSlideIndexR = 0;
+      let imagesR = [];
+      function showSlideR(index){
+        if(!sliderImagesContainerR || !imagesR.length) return;
+        if(index >= imagesR.length) currentSlideIndexR = 0; else if(index<0) currentSlideIndexR = imagesR.length-1; else currentSlideIndexR=index;
+        sliderImagesContainerR.style.transform = `translateX(${-currentSlideIndexR*100}%)`;
+      }
+      function getLangR(){ if(typeof currentLang!=='undefined') return currentLang; if(window.currentLang) return window.currentLang; if(document.body.classList.contains('ar')) return 'ar'; return 'en';}
+      if(prevBtnR) prevBtnR.addEventListener('click', (e)=>{ e.preventDefault(); e.stopPropagation(); const isAr=getLangR()==='ar'; showSlideR(currentSlideIndexR + (isAr?1:-1));});
+      if(nextBtnR) nextBtnR.addEventListener('click', (e)=>{ e.preventDefault(); e.stopPropagation(); const isAr=getLangR()==='ar'; showSlideR(currentSlideIndexR + (isAr?-1:1));});
+      if(closeBtnR) closeBtnR.addEventListener('click', ()=>{ modalR.style.display='none'; const cp=document.getElementById('catalogProducts'); if(cp) cp.style.display='none'; const sc=modalR.querySelector('.slider-container'); if(sc) sc.style.display='flex';});
+      window.addEventListener('click', (e)=>{ if(e.target===modalR){ modalR.style.display='none'; }});
+      return;
+    }
+    // 1. Get DOM elements (legacy fallback when API unavailable)
     const modal = document.getElementById('imageModal');
     const closeBtn = modal.querySelector('.close-btn');
     const sliderImagesContainer = modal.querySelector('.slider-images');

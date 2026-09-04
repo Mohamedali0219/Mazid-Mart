@@ -6,6 +6,7 @@
   <title>MazidMart</title>
 
   <!-- CSS -->
+  <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/hero.css">
@@ -18,9 +19,9 @@
   <link rel="stylesheet" href="css/contact.css">
   <link rel="stylesheet" href="css/action_buttons.css">
   <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/catalog.css">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -243,16 +244,17 @@
     </div>
   </section>
 
-  <!-- ✅ Our Work Section -->
+  <!-- ✅ Catalog Section (live categories & products) -->
 <section class="our-work" id="work">
   <div class="work-header">
-    <h2 data-key="work_title">Our Work</h2>
+    <h2 data-key="work_title">Our Collections</h2>
     <p data-key="work_subtitle">
-      A showcase of our finest silver jewelry and elegant accessories.
+      Live catalog powered by MazidMart — categories & products from our store.
     </p>
   </div>
+  <div id="catalogStatus" class="catalog-status" aria-live="polite">Loading collections…</div>
 
-  <div class="work-grid">
+  <div class="work-grid" id="workGrid">
     <div class="work-box" data-category="Rings">
       <img src="images/work/Rings.png" alt="Silver Rings">
       <div class="work-overlay">
@@ -399,6 +401,9 @@
       </div>
   </section>
 
+  <!-- Silver ticker (optional) -->
+  <div id="silverTicker" class="silver-ticker" aria-live="polite"></div>
+
   <!-- Image Slider Modal -->
   <div id="imageModal" class="modal-slider">
     <span class="close-btn">&times;</span>
@@ -412,15 +417,21 @@
       </div>
       <div class="slider-caption">
         <h4 id="sliderTitle">Category Name</h4>
+        <span class="catalog-close-hint">ESC to close</span>
       </div>
+      <!-- Live products grid (catalog) -->
+      <div id="catalogProducts" class="product-modal-grid" style="display:none"></div>
     </div>
   </div>
 
   <!-- JS -->
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
   <script src="js/lang.js" defer></script>
   <script src="js/header.js" defer></script>
   <script src="js/slider.js" defer></script>
   <script src="js/animation.js" defer></script>
   <script src="js/work_slider.js" defer></script>
+  <script src="js/catalog.js" defer></script>
 </body>
 </html>

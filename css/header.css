@@ -16,8 +16,10 @@
 }
 
 .header.scrolled {
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(10, 42, 24, 0.88);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 /* Logo */
@@ -101,7 +103,11 @@
   opacity: 1;
 }
 
-/* 📱 Responsive */
+/* 📱 Responsive — unified */
+@media (max-width: 1024px) {
+  .header { padding: 14px 20px; }
+  .nav { gap: 16px; }
+}
 @media (max-width: 768px) {
   .header {
     padding: 15px 20px;
