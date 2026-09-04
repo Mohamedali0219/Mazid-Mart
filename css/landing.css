@@ -288,33 +288,50 @@ body.ar .cat-highlight-img-wrap {
 }
 .phone{
   position:absolute;
-  width: 280px;
-  height: 580px;
-  background:#0e1a14;
-  border: 8px solid #1a1a1a;
-  border-radius: 28px;
+  width: 270px;
+  height: 575px;
+  background:#09140e;
+  border: 7px solid #141f19;
+  border-radius: 32px;
   overflow:hidden;
-  box-shadow: 0 24px 60px rgba(0,0,0,.45);
+  box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,0.12) inset;
   display:flex; flex-direction:column;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
-.phone::before{
-  content:'';
-  position:absolute; top:8px; left:50%; transform:translateX(-50%);
-  width:72px; height:14px; background:#1a1a1a; border-radius:0 0 10px 10px;
-  z-index:2;
+.phone::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 45%, rgba(255,255,255,0.03) 100%);
+  pointer-events: none;
+  z-index: 2;
 }
-.phone img{ width:100%; height:100%; object-fit:cover; display:block; }
+.phone img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  user-select:none;
+}
 .phone-1{
   left: 6%;
   top: 10px;
   transform: rotate(-4deg);
   z-index:1;
 }
+.phone-1:hover{
+  transform: translateY(-4px) rotate(-4deg);
+  box-shadow: 0 28px 70px rgba(0,0,0,.6), 0 0 0 1px rgba(201,168,106,0.3) inset;
+}
 .phone-2{
   right: 4%;
   top: 34px;
   transform: rotate(4deg);
   z-index:2;
+}
+.phone-2:hover{
+  transform: translateY(-4px) rotate(4deg);
+  box-shadow: 0 28px 70px rgba(0,0,0,.6), 0 0 0 1px rgba(201,168,106,0.3) inset;
 }
 .app-badge{
   position:absolute;

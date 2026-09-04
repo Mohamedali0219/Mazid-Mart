@@ -106,9 +106,9 @@ const translations = {
     work: "الأعمال",
     contact: "تواصل",
     langBtn: "English",
-    // Hero Section — refactored premium
+    // Hero Section — refactored premium (hero_desc removed as requested)
     hero_title: "مزيد مارت — أناقة الفضة المصنوعة بإتقان",
-    hero_desc: "مجوهرات فضية عيار 925 مصنوعة يدوياً في الإمارات. استكشف مجموعاتنا الحية وصناديق الهدايا الفاخرة.",
+    hero_desc: "",
     hero_btn: "استكشف أعمالنا الفضية →",
     hero_btn2: "تصفح الكتالوج",
     trust_years: "15+ سنة خبرة",
@@ -198,8 +198,12 @@ const translations = {
 function updateTexts() {
   document.querySelectorAll("[data-key]").forEach(el => {
     let key = el.getAttribute("data-key");
-    if (translations[currentLang][key]) {
+    if (translations[currentLang][key] !== undefined) {
       el.textContent = translations[currentLang][key];
+      // hide hero desc paragraph when empty (as requested to remove Arabic line)
+      if (key === "hero_desc") {
+        el.style.display = translations[currentLang][key] ? "" : "none";
+      }
     }
   });
 
