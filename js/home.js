@@ -161,28 +161,30 @@ document.addEventListener('DOMContentLoaded', async () => {
       </section>`;
   }
 
-  // 4. Build dynamic HTML order as per API order (priority)
-  let html = '';
+  // 4. Build dynamic HTML — reordered so Featured LADIES is under New Arrivals (as requested)
+  let newArrivalsHtml = '';
+  let categoryHighlightsHtml = '';
+  let otherProductsHtml = '';
   sections.forEach(sec=>{
     switch(sec.section_type){
       case 'products_grid':
-        if (sec.title_en && sec.title_en.toLowerCase().includes('new arrival')) html += renderProductsSection(sec);
+        if (sec.title_en && sec.title_en.toLowerCase().includes('new arrival')) newArrivalsHtml += renderProductsSection(sec);
+        break;
+      case 'category_highlight':
+        categoryHighlightsHtml += renderCategoryHighlight(sec);
         break;
       case 'products_carousel':
-        html += renderProductsSection(sec);
+        otherProductsHtml += renderProductsSection(sec);
         break;
       case 'banners_seasonal':
       case 'banners_grid':
         // Seasonal banner section removed as requested
         break;
-      case 'category_highlight':
-        html += renderCategoryHighlight(sec);
-        break;
       default:
-        // hero and categories_grid already handled via existing sections
         break;
     }
   });
+  let html = newArrivalsHtml + categoryHighlightsHtml + otherProductsHtml;
 
   // Also render banners_seasonal and banners_grid if not yet (ensure at least one banner)
   // If no html yet from seasonal, fallback
