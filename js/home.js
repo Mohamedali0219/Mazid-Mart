@@ -39,22 +39,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         div.setAttribute('aria-label', pickName(b) || b.title_en || 'MazidMart banner');
         heroSlider.appendChild(div);
       });
-    // update hero text from first banner if exists — hero_desc removed for Arabic as requested
+    // update hero text from first banner if exists — hero_desc removed entirely as requested (both languages)
     const first = heroSec.data[0];
     if (first && heroContent){
       const title = isArabic()? (first.title_ar||first.title_en) : (first.title_en||first.title_ar);
-      const desc = isArabic()? (first.description_ar||first.description_en) : (first.description_en||first.description_ar);
       if(title) {
         const h1=heroContent.querySelector('h1');
         if(h1){ h1.textContent = title; h1.style.fontFamily = isArabic() ? '"Cairo", sans-serif' : '"Playfair Display", serif'; }
       }
-      if(!isArabic() && desc){
-        const p=heroContent.querySelector('p');
-        if(p) { p.textContent=desc; p.style.display=""; }
-      } else if(isArabic()){
-        const p=heroContent.querySelector('p');
-        if(p) { p.textContent=""; p.style.display="none"; }
-      }
+      // hero description removed as requested — always hide
+      const p=heroContent.querySelector('p');
+      if(p) { p.textContent=""; p.style.display="none"; }
     }
     // create dots
     if (!document.querySelector('.hero-dots')){

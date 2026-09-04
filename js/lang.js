@@ -9,9 +9,9 @@ const translations = {
     work: "Work",
     contact: "Contact",
     langBtn: "عربية",
-    // Hero Section — refactored premium
+    // Hero Section — refactored premium (hero_desc removed as requested for both languages)
     hero_title: "MazidMart — Crafted Silver Elegance",
-    hero_desc: "Authentic 925 silver jewelry, handcrafted in the UAE. Explore live collections, premium gift boxes & bespoke services.",
+    hero_desc: "",
     hero_btn: "Explore Our Silver Work →",
     hero_btn2: "Browse Catalog",
     trust_years: "15+ Years",
