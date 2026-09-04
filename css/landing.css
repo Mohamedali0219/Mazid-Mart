@@ -1,0 +1,27 @@
+/* ===== Landing Premium Polish ===== */
+.hero-content h1{ font-family:"Playfair Display", serif; letter-spacing: .4px; }
+.hero-content p{ font-size: clamp(1rem, 2.2vw, 1.18rem); opacity:.95; max-width: 640px; margin: 12px auto 18px; }
+.hero-btn{ box-shadow: 0 10px 24px rgba(15,61,36,.28); border:1px solid rgba(255,255,255,.22); backdrop-filter: blur(4px); }
+.hero-btn:hover{ transform: translateY(-2px); box-shadow: 0 14px 30px rgba(15,61,36,.32); }
+
+.about-stats .section-title{ font-family:"Playfair Display", serif; }
+.collection{ position:relative; }
+.collection::before{ content:''; position:absolute; inset:0; background: radial-gradient(600px 400px at 70% 20%, rgba(201,168,106,.10), transparent 60%); pointer-events:none; }
+
+.why-choose-us .feature-box{ border:1px solid var(--color-border); background: linear-gradient(180deg,#fff, #fcfbfa); }
+.promo-card{ box-shadow: var(--shadow-md); border:1px solid rgba(0,0,0,.04); }
+.promo-card .overlay{ backdrop-filter: saturate(1.1); }
+
+.discover-collection{ border-radius:18px; margin: 64px 20px; overflow:hidden; }
+@media (min-width: 1280px){ .discover-collection{ margin: 64px auto; max-width: 1260px; } }
+
+.services{ background: linear-gradient(180deg, #fff, #faf9f7); }
+.service-card{ border:1px solid var(--color-border); }
+
+.home-products-section .product-card{ border-radius: 14px; }
+.home-banner-section > div{ box-shadow: var(--shadow-lg); }
+
+.work-grid .work-box{ border-radius: 16px; }
+.work-overlay{ backdrop-filter: blur(2px); }
+
+.silver-ticker{ font-weight:600; letter-spacing:.3px; }

@@ -165,5 +165,33 @@ document.addEventListener('DOMContentLoaded', async () => {
       const msg = encodeURIComponent(`${isAr?'استفسار عن المنتج':'Inquiry about product'}: ${title} (ID: ${product.id})`);
       whatsapp.href = `https://wa.me/971555501925?text=${msg}`;
     }
+
+    // Related products by same category (attractive cross-sell) — uses app's free endpoint
+    const relatedSection = document.getElementById('relatedSection');
+    const relatedGrid = document.getElementById('relatedGrid');
+    const catId = product.category_id || product.categoryId || product.category?.id;
+    if (catId && relatedSection && relatedGrid){
+      try{
+        const resp = await window.MazidAPI.getProductsByCategory(catId, 1, 8);
+        const list = resp && resp.data ? resp.data : [];
+        const filtered = list.filter(p=> p.id !== product.id).slice(0,4);
+        if (filtered.length){
+          relatedSection.style.display='block';
+          relatedGrid.innerHTML='';
+          filtered.forEach(p=>{
+            const img = p.image_urls?.[0] || p.main_image_url || p.imageUrl || 'images/MazidMartLogo.png';
+            const name = pickName(p);
+            const price = p.final_price ?? p.finalPrice ?? p.base_price ?? p.price ?? null;
+            const priceStr = price!=null ? Number(price).toLocaleString(isAr?'ar-EG':'en-US', {maximumFractionDigits:2})+' AED' : '';
+            const card=document.createElement('div');
+            card.className='product-card';
+            card.style.cursor='pointer';
+            card.onclick=()=> location.href=`product.html?id=${p.id}&categoryId=${catId}`;
+            card.innerHTML=`<img src="${img}" alt="${name}" loading="lazy" onerror="this.src='images/MazidMartLogo.png'"/><div class="product-card-body"><div class="product-card-title">${name}</div>${priceStr?`<div class="product-card-price">${priceStr}</div>`:''}</div>`;
+            relatedGrid.appendChild(card);
+          });
+        }
+      }catch(e){ /* silent */ }
+    }
   }
 });
