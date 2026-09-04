@@ -139,17 +139,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     const title = pickTitle(sec) || pickName(cat);
     const desc = isArabic() ? (cat.description_ar||'') : (cat.description_en||'');
     const img = cat.product_image_url || cat.image_url || (cat.product_images && cat.product_images[0]) || '';
+    const tag = isArabic() ? 'مجموعة مميزة' : 'Featured Collection';
+    const btnText = isArabic() ? 'استكشف المجموعة' : 'Explore collection';
+    const arrow = isArabic() ? '←' : '→';
     return `
-      <section class="cat-highlight-section" style="max-width:1280px; margin:18px auto; padding:0 20px;">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; background: var(--color-surface); border:1px solid var(--color-border); border-radius:16px; overflow:hidden; align-items:center;">
-          <div style="padding:20px 22px; display:flex; flex-direction:column; justify-content:center;">
-            <h3 style="font-family:'Playfair Display',serif; color:var(--color-primary); font-size:clamp(1.2rem,3vw,1.5rem);">${title}</h3>
-            ${desc ? `<p style="color:var(--color-text-muted); margin-top:8px; line-height:1.6; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;">${desc}</p>` : ''}
-            <a href="categories.html?id=${cat.id}" class="btn" style="margin-top:14px; align-self:flex-start; text-decoration:none;">${isArabic()?'استكشف المجموعة':'Explore collection'} →</a>
+      <section class="cat-highlight-section">
+        <div class="cat-highlight-card">
+          <div class="cat-highlight-content">
+            <span class="cat-highlight-tag">${tag}</span>
+            <h3 class="cat-highlight-title">${title}</h3>
+            ${desc ? `<p class="cat-highlight-desc">${desc}</p>` : ''}
+            <a href="categories.html?id=${cat.id}" class="cat-highlight-btn">
+              <span>${btnText}</span>
+              <span class="btn-arrow">${arrow}</span>
+            </a>
           </div>
-          <div class="cat-highlight-img-wrap" style="height:190px; background: var(--color-surface-2); overflow:hidden;">
-            <img src="${img}" alt="${pickName(cat)}" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;" onerror="this.src='images/MazidMartLogo.png'"/>
-          </div>
+          <a href="categories.html?id=${cat.id}" class="cat-highlight-img-wrap" aria-label="${title}">
+            <img src="${img}" alt="${pickName(cat)}" class="cat-highlight-img" loading="lazy" onerror="this.src='images/MazidMartLogo.png'"/>
+          </a>
         </div>
       </section>`;
   }
@@ -166,7 +173,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         break;
       case 'banners_seasonal':
       case 'banners_grid':
-        html += renderBannerSection(sec);
+        // Seasonal banner section removed as requested
         break;
       case 'category_highlight':
         html += renderCategoryHighlight(sec);

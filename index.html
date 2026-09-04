@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/action_buttons.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/catalog.css">
-  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/landing.css?v=1.2">
 
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
@@ -30,30 +30,34 @@
   <!-- Overlay للموبايل - واحدة فقط ✅ -->
   <div class="overlay" id="overlay"></div>
 
-  <!-- Header -->
+  <!-- Header — Refactored Premium -->
   <header class="header">
-    <div class="logo">
-      <img src="images/MazidMartLogo.png" alt="MazidMart Logo">
-    </div>    
+    <div class="header-inner">
+      <div class="logo">
+        <a href="index.html"><img src="images/MazidMartLogo.png" alt="MazidMart Logo"></a>
+        <div style="display:flex; flex-direction:column; margin-left:8px;">
+          <span class="logo-text">MazidMart</span>
+          <span class="logo-sub">Silver Elegance</span>
+        </div>
+      </div>
 
-    <!-- زر الموبايل -->
-    <button class="menu-toggle" id="menu-toggle">☰</button>
+      <nav class="nav" id="nav-menu">
+        <a href="#home" data-key="home" class="active">Home</a>
+        <a href="#work" data-key="work">Collections</a>
+        <a href="#about" data-key="about">About</a>
+        <a href="#contact" data-key="contact">Contact</a>
+        <a href="categories.html" class="cta-header mobile-only" style="margin-top:16px;">Browse Catalog →</a>
+      </nav>
 
-    <nav class="nav" id="nav-menu">
-      <a href="index.html#home" data-key="home">Home</a>
-      <a href="categories.html" data-key="work" style="font-weight:700;">Collections</a>
-      <a href="index.html#about" data-key="about">About</a>
-      <a href="index.html#contact" data-key="contact">Contact</a>
-    </nav>
-
-    <div class="actions">
-      <button id="lang-btn" class="btn">
-        🌐 <span>English</span>
-      </button>
+      <div class="actions">
+        <a href="categories.html" class="cta-header">Browse Catalog →</a>
+        <button id="lang-btn"><span>🌐</span> <span>English</span></button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+      </div>
     </div>
   </header>
 
-  <!-- ✅ Hero Section -->
+  <!-- ✅ Hero Section — Premium Refactored -->
   <section class="hero" id="home">
     <div class="hero-slider">
       <div class="slide active" style="background-image: url('images/hero_images/slide1.png');"></div>
@@ -62,9 +66,18 @@
       <div class="slide" style="background-image: url('images/hero_images/slide4.png');"></div>
     </div>
     <div class="hero-content">
-      <h1 data-key="hero_title">MazidMart – Crafted Silver Elegance</h1>
-      <p data-key="hero_desc">Authentic silver jewelry and complete services from design to delivery.</p>
-      <a href="#work" class="btn hero-btn" data-key="hero_btn">Explore Our Silver Work</a>
+      <div class="hero-eyebrow"><i></i> <span>Since 2009 • Sharjah, UAE</span></div>
+      <h1 data-key="hero_title">MazidMart — <span>Crafted Silver</span> Elegance</h1>
+      <p data-key="hero_desc">Authentic 925 silver jewelry, handcrafted in the UAE. Explore live collections, premium gift boxes & bespoke services.</p>
+      <div class="hero-ctas">
+        <a href="#work" class="hero-btn" data-key="hero_btn">Explore Collections →</a>
+        <a href="categories.html" class="hero-btn secondary">Browse Catalog</a>
+      </div>
+      <div class="hero-trust">
+        <span><i>✓</i> 15+ Years</span>
+        <span><i>✓</i> 1,200+ Happy Clients</span>
+        <span><i>✓</i> 300+ Sale Process</span>
+      </div>
     </div>
   </section>
 
@@ -103,6 +116,16 @@
       </div>
     </div>
   </section>
+
+  <!-- ✅ Catalog Section — moved up for primary conversion -->
+ <section class="our-work" id="work">
+  <div class="work-header">
+    <h2 data-key="work_title">Our Collections</h2>
+    <p data-key="work_subtitle">Live catalog — explore categories, then dive into products. Handcrafted 925 silver.</p>
+  </div>
+  <div id="catalogStatus" class="catalog-status" aria-live="polite">Loading collections…</div>
+  <div class="work-grid" id="workGrid"></div>
+ </section>
 
     <!-- ✅ Collection Section -->
     <section class="collection" id="collection">
@@ -247,83 +270,6 @@
     </div>
   </section>
 
-  <!-- ✅ Catalog Section (live categories & products) -->
-<section class="our-work" id="work">
-  <div class="work-header">
-    <h2 data-key="work_title">Our Collections</h2>
-    <p data-key="work_subtitle">
-      Live catalog powered by MazidMart — categories & products from our store.
-    </p>
-  </div>
-  <div id="catalogStatus" class="catalog-status" aria-live="polite">Loading collections…</div>
-
-  <div class="work-grid" id="workGrid">
-    <div class="work-box" data-category="Rings">
-      <img src="images/work/Rings.png" alt="Silver Rings">
-      <div class="work-overlay">
-        <h3 data-key="category_rings">Rings</h3>
-        <p class="work-cta" data-key="work_cta">Click to learn more</p>
-      </div>
-    </div>
-
-    <div class="work-box" data-category="Necklaces">
-      <img src="images/work/Necklaces.png" alt="Silver Necklaces">
-      <div class="work-overlay">
-        <h3 data-key="category_necklaces">Necklaces</h3>
-        <p class="work-cta" data-key="work_cta">Click to learn more</p>
-      </div>
-    </div>
-
-    <div class="work-box" data-category="Bracelets">
-      <img src="images/work/Bracelets.png" alt="Silver Bracelets">
-      <div class="work-overlay">
-        <h3 data-key="category_bracelets">Bracelets</h3>
-        <p class="work-cta" data-key="work_cta">Click to learn more</p>
-      </div>
-    </div>
-
-    <div class="work-box" data-category="Earrings">
-      <img src="images/work/Earrings.png" alt="Silver Earrings">
-      <div class="work-overlay">
-        <h3 data-key="category_earrings">Earrings</h3>
-        <p class="work-cta" data-key="work_cta">Click to learn more</p>
-      </div>
-    </div>
-
-    <div class="work-box" data-category="Anklets">
-      <img src="images/work/Anklets.png" alt="Silver Anklets">
-      <div class="work-overlay">
-        <h3 data-key="category_anklets">Anklets</h3>
-        <p class="work-cta" data-key="work_cta">Click to learn more</p>
-      </div>
-    </div>
-
-    <div class="work-box" data-category="Silver Bars">
-      <img src="images/work/Silver_Bars.png" alt="Silver Bars">
-      <div class="work-overlay">
-        <h3 data-key="category_bars">Silver Bars</h3>
-        <p class="work-cta" data-key="work_cta">Click to learn more</p>
-      </div>
-    </div>
-
-    <div class="work-box" data-category="Silver Sets">
-      <img src="images/work/Silver_Sets.png" alt="Silver Sets">
-      <div class="work-overlay">
-        <h3 data-key="category_sets">Silver Sets</h3>
-        <p class="work-cta" data-key="work_cta">Click to learn more</p>
-      </div>
-    </div>
-
-    <div class="work-box" data-category="Custom Pieces">
-      <img src="images/work/Custom_Pieces.png" alt="Custom Silver Pieces">
-      <div class="work-overlay">
-        <h3 data-key="category_custom">Custom Pieces</h3>
-        <p class="work-cta" data-key="work_cta">Click to learn more</p>
-      </div>
-    </div>
-  </div>
-</section>
-
   <!-- ✅ Contact Section -->
   <section class="mazid-contact" id="contact">
       <div class="mazid-contact-container">
@@ -436,6 +382,6 @@
   <script src="js/animation.js" defer></script>
   <script src="js/work_slider.js" defer></script>
   <script src="js/catalog.js" defer></script>
-  <script src="js/home.js" defer></script>
+  <script src="js/home.js?v=1.3" defer></script>
 </body>
 </html>
