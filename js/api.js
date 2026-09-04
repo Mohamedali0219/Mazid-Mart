@@ -59,8 +59,9 @@
     getHome: () => withCache("mazid_home", () => rpcGet("get_home_screen_data", { user_id: "" })),
     getCategoryProductImages: (categoryId) => rpcPost("get_category_product_images", { p_category_id: categoryId }),
     // Primary: use get_all_products?category_id=...&status=active (free, as in SearchRepository)
-    getProductsByCategory: (categoryId, page=1) => rpcGet("get_all_products", { category_id: categoryId, status: "active", page, limit: 20 }),
-    getAllProducts: (page=1) => rpcGet("get_all_products", { status: "active", page, limit: 20 }),
+    getProductsByCategory: (categoryId, page=1, limit=20) => rpcGet("get_all_products", { category_id: categoryId, status: "active", page, limit }),
+    getAllProducts: (page=1, limit=20) => rpcGet("get_all_products", { status: "active", page, limit }),
+    getProductDetails: (productId) => rpcPost("get_product_details", { product_id: productId }),
     searchProducts: (query) => rpcGet("search_products", { query }),
     getNewest: () => rpcGet("get_newest_products"),
     getPopular: () => rpcGet("get_most_popular_products"),

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collections — MazidMart</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/work.css">
+  <link rel="stylesheet" href="css/catalog.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .cat-hero { padding: 110px 20px 40px; background: var(--color-bg); text-align:center; }
+    .cat-hero h1{ font-family: "Playfair Display", serif; font-size: clamp(1.8rem,5vw,2.6rem); color: var(--color-primary); }
+    .cat-hero p{ color: var(--color-text-muted); max-width: 640px; margin: 10px auto 0; }
+    .root-tabs{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin:18px auto 0; max-width:900px; }
+    .root-tab{ padding:8px 16px; border:1px solid var(--color-border); border-radius:20px; background:#fff; cursor:pointer; font-size:0.85rem; font-weight:600; transition: all .2s; }
+    .root-tab.active{ background: var(--color-primary); color:#fff; border-color: var(--color-primary); }
+    .root-tab:hover{ border-color: var(--color-primary); }
+    .cat-section{ max-width: 1280px; margin: 0 auto; padding: 20px; }
+    .category-products-header{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin: 18px 0; }
+    .category-products-header h2{ font-size: clamp(1.2rem,3vw,1.6rem); color: var(--color-primary); }
+    .back-link{ display:inline-flex; align-items:center; gap:6px; text-decoration:none; color: var(--color-primary); font-weight:600; border:1px solid var(--color-border); padding:8px 14px; border-radius:8px; background:#fff; }
+    .back-link:hover{ background: var(--color-surface-2); }
+    .pagination-bar{ display:flex; justify-content:center; gap:12px; margin:20px 0; }
+  </style>
+</head>
+<body>
+  <div class="overlay" id="overlay"></div>
+  <header class="header">
+    <div class="logo"><a href="index.html"><img src="images/MazidMartLogo.png" alt="MazidMart Logo"></a></div>
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+    <nav class="nav" id="nav-menu">
+      <a href="index.html#home" data-key="home">Home</a>
+      <a href="categories.html" data-key="work" style="font-weight:700; text-decoration:underline; text-underline-offset:4px;">Collections</a>
+      <a href="index.html#about" data-key="about">About</a>
+      <a href="index.html#contact" data-key="contact">Contact</a>
+    </nav>
+    <div class="actions">
+      <button id="lang-btn" class="btn">🌐 <span>English</span></button>
+    </div>
+  </header>
+
+  <section class="cat-hero">
+    <h1 id="catHeroTitle">Our Collections</h1>
+    <p id="catHeroDesc">Browse live categories and products — tap a collection to explore its products.</p>
+    <div id="rootTabs" class="root-tabs" aria-label="Category filters"></div>
+  </section>
+
+  <main class="cat-section">
+    <div id="catalogStatus" class="catalog-status">Loading collections…</div>
+    <div id="workGrid" class="work-grid"></div>
+
+    <!-- Products view for selected category -->
+    <div id="productsView" style="display:none;">
+      <div class="category-products-header">
+        <h2 id="productsTitle">Products</h2>
+        <a href="categories.html" class="back-link">← Back to collections</a>
+      </div>
+      <div id="productsStatus" class="catalog-status"></div>
+      <div id="productsGrid" class="product-modal-grid" style="max-height:none; overflow:visible;"></div>
+      <div class="pagination-bar">
+        <button id="loadMoreBtn" class="btn" style="display:none;">Load more</button>
+      </div>
+    </div>
+  </main>
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="copyright-text" data-key="footer_copyright">© 2025 MazidMart. All rights reserved.</p>
+    </div>
+  </section>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/lang.js" defer></script>
+  <script src="js/header.js" defer></script>
+  <script src="js/categories.js" defer></script>
+</body>
+</html>

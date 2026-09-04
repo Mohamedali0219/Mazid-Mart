@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — MazidMart</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/catalog.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .pd-wrap{ max-width:1180px; margin:0 auto; padding: 96px 20px 40px; }
+    .pd-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:28px; align-items:start; }
+    .pd-gallery{ background:#fff; border:1px solid var(--color-border); border-radius: var(--radius-lg); overflow:hidden; }
+    .pd-main-img{ width:100%; aspect-ratio:1/1; object-fit:cover; background: var(--color-surface-2); display:block; }
+    .pd-thumbs{ display:flex; gap:8px; padding:10px; overflow:auto; }
+    .pd-thumbs img{ width:64px; height:64px; object-fit:cover; border-radius:8px; border:2px solid transparent; cursor:pointer; flex-shrink:0; }
+    .pd-thumbs img.active{ border-color: var(--color-primary); }
+    .pd-info h1{ font-family:"Playfair Display",serif; font-size: clamp(1.4rem,3.5vw,2rem); color: var(--color-primary); line-height:1.2; }
+    .pd-price{ font-size:1.4rem; font-weight:700; color: var(--color-primary); margin:10px 0; }
+    .pd-price s{ color: var(--color-text-muted); font-weight:400; font-size:1rem; margin-left:8px; }
+    .pd-badge{ display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:20px; font-size:0.75rem; font-weight:700; border:1px solid var(--color-border); background:#fff; }
+    .pd-badge.in{ color:#065f46; border-color:#a7f3d0; background:#ecfdf5; }
+    .pd-badge.out{ color:#991b1b; border-color:#fecaca; background:#fef2f2; }
+    .pd-section{ margin:16px 0; padding:16px; background:#fff; border:1px solid var(--color-border); border-radius: var(--radius-md); }
+    .pd-section h3{ font-size:0.95rem; font-weight:700; color: var(--color-primary); margin-bottom:8px; }
+    .pd-specs{ display:grid; grid-template-columns: repeat(2,1fr); gap:10px; font-size:0.85rem; }
+    .pd-specs dt{ color: var(--color-text-muted); }
+    .pd-specs dd{ font-weight:600; color: var(--color-text); }
+    .pd-desc{ color: var(--color-text-muted); line-height:1.7; font-size:0.95rem; white-space:pre-wrap; }
+    .pd-actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .pd-actions a{ text-decoration:none; display:inline-flex; align-items:center; gap:8px; padding:12px 18px; border-radius:8px; font-weight:600; border:1px solid var(--color-primary); }
+    .pd-actions .primary{ background: var(--color-primary); color:#fff; }
+    .pd-actions .secondary{ background:#fff; color: var(--color-primary); }
+    .pd-skeleton{ background: linear-gradient(90deg,#eee 25%,#f5f5f5 50%,#eee 75%); background-size:200% 100%; animation:shimmer 1.2s infinite; }
+    @media (max-width:900px){ .pd-grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="overlay" id="overlay"></div>
+  <header class="header">
+    <div class="logo"><a href="index.html"><img src="images/MazidMartLogo.png" alt="MazidMart Logo"></a></div>
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+    <nav class="nav" id="nav-menu">
+      <a href="index.html#home">Home</a>
+      <a href="categories.html">Collections</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="actions"><button id="lang-btn" class="btn">🌐 <span>English</span></button></div>
+  </header>
+
+  <main class="pd-wrap">
+    <a href="categories.html" id="backLink" class="back-link" style="display:inline-flex; align-items:center; gap:6px; text-decoration:none; color:var(--color-primary); font-weight:600; margin-bottom:12px;">← Back</a>
+    <div id="pdStatus" class="catalog-status">Loading product…</div>
+    <div id="pdContent" class="pd-grid" style="display:none;">
+      <div class="pd-gallery">
+        <img id="pdMainImg" class="pd-main-img" alt="Product image" />
+        <div id="pdThumbs" class="pd-thumbs"></div>
+      </div>
+      <div class="pd-info">
+        <div id="pdStock" class="pd-badge" style="display:none;"></div>
+        <h1 id="pdTitle">Product</h1>
+        <div id="pdCategory" style="font-size:0.85rem; color:var(--color-text-muted); margin-top:4px;"></div>
+        <div id="pdPrice" class="pd-price"></div>
+        <div id="pdSku" style="font-size:0.8rem; color:var(--color-text-muted);"></div>
+
+        <div class="pd-actions">
+          <a id="pdWhatsapp" class="primary" target="_blank" href="#">WhatsApp Inquiry</a>
+          <a id="pdCall" class="secondary" href="tel:+971556571212">Call</a>
+        </div>
+
+        <div class="pd-section">
+          <h3>Description</h3>
+          <div id="pdDesc" class="pd-desc">—</div>
+        </div>
+
+        <div class="pd-section">
+          <h3>Specifications</h3>
+          <dl id="pdSpecs" class="pd-specs"></dl>
+        </div>
+
+        <div class="pd-section" id="pdSizesSection" style="display:none;">
+          <h3>Available Sizes (AR)</h3>
+          <div id="pdSizes" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="footer">
+    <div class="footer-container"><p class="copyright-text">© 2025 MazidMart. All rights reserved.</p></div>
+  </section>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/lang.js" defer></script>
+  <script src="js/header.js" defer></script>
+  <script src="js/product.js" defer></script>
+</body>
+</html>

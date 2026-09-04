@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
     grid.innerHTML = '';
     if (!categories || !categories.length){
       if (statusEl) statusEl.textContent = isArabic() ? 'لا توجد مجموعات متاحة' : 'No collections available';
-      // keep fallback? 
       return;
     }
     if (statusEl) {
@@ -82,10 +81,21 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="work-cta">${isArabic() ? 'اضغط لعرض المنتجات' : 'Click to view products'}</p>
         </div>
       `;
-      box.addEventListener('click', ()=> openCategory(cat));
-      box.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openCategory(cat);} });
+      // Navigate to dedicated category page on click, fallback to modal if desired (shift+click opens modal)
+      box.addEventListener('click', (e)=>{
+        if (isFallback) { openCategory(cat); return; }
+        if (e.shiftKey) { openCategory(cat); return; }
+        location.href = `categories.html?id=${encodeURIComponent(cat.id)}`;
+      });
+      box.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); location.href = `categories.html?id=${encodeURIComponent(cat.id)}`;} });
+      // Add small link hint for navigation
       grid.appendChild(box);
     });
+    // Add View All link below grid
+    const viewAllWrap = document.createElement('div');
+    viewAllWrap.style.cssText='grid-column:1/-1; text-align:center; margin-top:8px;';
+    viewAllWrap.innerHTML = `<a href="categories.html" class="btn" style="text-decoration:none; display:inline-block; margin-top:8px;">${isArabic()?'عرض كل المجموعات':'View all collections'} →</a>`;
+    grid.appendChild(viewAllWrap);
     // also listen lang switch to re-render names without refetch
     // store last categories
     window._lastCats = categories;
@@ -175,6 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
       catalogProducts.innerHTML = `<div class="empty-products">${msg}<br><br><a href="#contact" class="btn" onclick="document.getElementById('imageModal').style.display='none'">Contact Us</a></div>`;
       return;
     }
+    // Inject view-all action before products
+    const viewAll = document.createElement('div');
+    viewAll.style.cssText='grid-column:1/-1; text-align:center;';
+    viewAll.innerHTML = `<a href="categories.html?id=${encodeURIComponent(cat.id)}" class="btn" style="text-decoration:none;">${isArabic()?'عرض كل المنتجات في صفحة مخصصة':'View all on dedicated page'} →</a>`;
+    catalogProducts.appendChild(viewAll);
     products.forEach(p=>{
       const img = p.main_image_url || p.mainImageUrl || p.image_url || p.imageUrl || (p.image_urls && p.image_urls[0]) || (p.imageUrls && p.imageUrls[0]) || 'images/MazidMartLogo.png';
       const title = pickName(p) || p.sku || 'Product';
@@ -182,6 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const price = formatPrice(p);
       const card = document.createElement('div');
       card.className = 'product-card';
+      card.style.cursor='pointer';
+      card.onclick = ()=> location.href = `product.html?id=${encodeURIComponent(p.id)}&categoryId=${encodeURIComponent(cat.id)}`;
       card.innerHTML = `
         <img src="${img}" alt="${title}" loading="lazy" onerror="this.src='images/MazidMartLogo.png'"/>
         <div class="product-card-body">
