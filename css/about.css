@@ -90,15 +90,34 @@
   color: #333;
 }
 
-/* ===== Responsive ===== */
+/* ===== Responsive — keep 4 in one row as requested ===== */
 @media (max-width: 992px) {
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
   }
+  .stat { min-height: 160px; padding: 16px 10px; }
+  .stat h3 { font-size: 1.6rem; }
+  .stat p { font-size: 0.9rem; }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .stats-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
   }
+  .stat { min-height: 130px; padding: 12px 6px; border-radius:10px; }
+  .stat h3 { font-size: 1.25rem; }
+  .stat p { font-size: 0.75rem; line-height:1.3; }
+}
+
+@media (max-width: 480px) {
+  .about-stats{ padding: 60px 10px; }
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .stat { min-height: 110px; padding: 10px 4px; }
+  .stat h3 { font-size: 1.05rem; margin-bottom:4px; }
+  .stat p { font-size: 0.68rem; }
 }
