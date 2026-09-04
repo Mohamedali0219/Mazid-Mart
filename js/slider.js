@@ -14,5 +14,5 @@ function nextSlide() {
 }
 
 if (slides.length > 0) {
-  setInterval(nextSlide, 5000);
+  setInterval(nextSlide, 2500);
 }

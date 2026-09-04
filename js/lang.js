@@ -17,6 +17,10 @@ const translations = {
     trust_years: "15+ Years",
     trust_clients: "1,200+ Happy Clients",
     trust_sale: "300+ Sale Process",
+    app_feat1: "Easy Shopping",
+    app_feat2: "Exclusive Offers",
+    app_feat3: "Fast & Secure Delivery",
+    app_feat4: "Order Updates",
     // Collection Section
     collection_title: "Elegant Silver Collection",
     collection_desc: "At MazidMart, we bring you a diverse collection of elegant silver jewelry with modern designs and premium quality. From rings and bracelets to necklaces, earrings, wedding bands, and anklets, each piece is crafted with exceptional care. We also provide luxurious gift boxes with refined materials to make your gift more valuable and elegant.",
@@ -114,6 +118,10 @@ const translations = {
     trust_years: "15+ سنة خبرة",
     trust_clients: "1,200+ عميل سعيد",
     trust_sale: "300+ عملية بيع",
+    app_feat1: "تسوق سهل",
+    app_feat2: "عروض حصرية",
+    app_feat3: "توصيل سريع وآمن",
+    app_feat4: "تحديثات الطلب",
     // Collection Section
     collection_title: "تشكيلة فضية أنيقة",
     collection_desc: "في مزيد مارت، نقدم لك مجموعة متنوعة من المجوهرات الفضية الأنيقة بتصاميم عصرية وجودة ممتازة. من الخواتم والأساور إلى القلائد والأقراط والدبل والحلقان، كل قطعة مصنوعة بعناية فائقة. كما نوفر صناديق هدايا فاخرة بمواد راقية لجعل هديتك أكثر قيمة وأناقة.",

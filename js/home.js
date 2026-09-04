@@ -67,13 +67,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         dots.appendChild(d);
       });
       heroSlider.parentElement.appendChild(dots);
-      // sync existing slider.js auto-rotation with dots (optional)
+      // sync existing slider.js auto-rotation with dots (fast)
       let idx=0;
       setInterval(()=>{
         idx=(idx+1)%heroSec.data.length;
         document.querySelectorAll('.hero-slider .slide').forEach((s,i)=> s.classList.toggle('active', i===idx));
         dots.querySelectorAll('button').forEach((b,i)=> b.style.background= i===idx ? '#fff' : 'transparent');
-      }, 5000);
+      }, 2500);
     }
   }
 
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.querySelectorAll('.about-stats, .collection, .why-choose-us, .discover-collection, .services, .our-work, .home-products-section, .home-banner-section').forEach(el=>{
     el.style.opacity='0';
     el.style.transform='translateY(14px)';
-    el.style.transition='opacity .6s ease, transform .6s ease';
+    el.style.transition='opacity .35s ease, transform .35s ease';
     observer.observe(el);
   });
 });
