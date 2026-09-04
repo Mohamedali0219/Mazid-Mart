@@ -155,10 +155,10 @@
 
 /* Mobile drawer */
 @media (max-width: 860px){
-  .header-inner{ display:grid; grid-template-columns: auto 1fr auto; gap:10px; }
-  .logo{ order:2; justify-self:center; }
-  .actions{ order:1; justify-self:start; }
-  .menu-toggle{ display:flex; order:3; justify-self:end; }
+  .header-inner{ display:flex; justify-content:space-between; align-items:center; gap:12px; }
+  .logo{ flex-shrink:0; }
+  .actions{ margin-left:auto; }
+  .menu-toggle{ display:flex; }
   .nav{
     display:flex;
     flex-direction:column;
@@ -191,6 +191,21 @@
   .cta-header.mobile-only{ display:inline-flex; margin-top:12px; justify-content:center; }
   body.show-nav-body{ overflow:hidden; }
 }
+/* RTL drawer — slide from left */
+body.ar .nav{
+  /* keep pill style on desktop, drawer side handled in mobile */
+}
+@media (max-width: 860px){
+  body.ar .nav{
+    right:auto; left:0;
+    border-left:none; border-right:1px solid var(--color-border);
+    box-shadow: 12px 0 32px rgba(0,0,0,.14);
+    transform: translateX(-100%);
+  }
+  body.ar .nav.show{ transform: translateX(0); }
+  body.ar .header-inner{ flex-direction: row-reverse; }
+  body.ar .actions{ margin-left:0; margin-right:auto; flex-direction: row-reverse; }
+}
 
 @media (max-width: 480px){
   .header-inner{ padding:0 14px; height:64px; }
@@ -200,9 +215,11 @@
   .nav{ width:84%; }
 }
 
-/* RTL fixes */
+/* RTL fixes — desktop only for nav pill order */
 body.ar .header-inner{ flex-direction: row-reverse; }
-body.ar .nav{ flex-direction: row-reverse; }
+@media (min-width: 861px){
+  body.ar .nav{ flex-direction: row-reverse; }
+}
 body.ar .actions{ flex-direction: row-reverse; }
 body.ar .logo{ flex-direction: row-reverse; }
 body.ar .logo div{ margin-left:0; margin-right:8px; text-align:right; }

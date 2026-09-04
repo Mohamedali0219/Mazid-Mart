@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     dynamicContainer.innerHTML = html;
   }
 
-  // 5. Silver price ticker — try Supabase REST silver_prices table
+  // 5. Silver price ticker — only show if valid price (avoid empty green bar between header and hero)
   if (silverTicker){
     try{
       const key = window.MAZID_CONFIG.SUPABASE_ANON_KEY;
@@ -203,16 +203,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         const arr = await r.json();
         if (Array.isArray(arr) && arr.length){
           const sp = arr[0];
-          const price = sp.price ?? sp.price_per_gram ?? sp.current_price ?? '';
+          const priceRaw = sp.price ?? sp.price_per_gram ?? sp.current_price ?? '';
+          const price = String(priceRaw).trim();
+          if (!price || price === '0' || price === '0.0') { silverTicker.style.display='none'; return; }
           const unit = sp.currency || 'AED';
           const updated = sp.created_at ? new Date(sp.created_at).toLocaleDateString(isArabic()?'ar-EG':'en-US') : '';
           silverTicker.innerHTML = `<span>Silver •</span> <strong>${price} ${unit}/g</strong> <span style="opacity:.8;">${updated}</span>`;
           silverTicker.classList.add('show');
-          // pad header
-          document.body.style.paddingTop = '0';
+        } else {
+          silverTicker.style.display='none';
         }
+      } else {
+        silverTicker.style.display='none';
       }
-    }catch(e){ /* silent */ }
+    }catch(e){ silverTicker.style.display='none'; }
   }
 
   // 6. Enhance static sections attractiveness: add fade-in on scroll
