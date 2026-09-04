@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const heroSlider = document.querySelector('.hero-slider');
   const heroContent = document.querySelector('.hero-content');
   const dynamicContainer = document.getElementById('dynamicHomeSections');
-  const silverTicker = document.getElementById('silverTicker');
+
   if (!window.MazidAPI) return;
 
   function isArabic(){ if(typeof currentLang!=='undefined') return currentLang==='ar'; return document.body.classList.contains('ar'); }
@@ -39,14 +39,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         div.setAttribute('aria-label', pickName(b) || b.title_en || 'MazidMart banner');
         heroSlider.appendChild(div);
       });
-    // update hero text from first banner if exists — hero_desc removed entirely as requested (both languages)
+    // hero title is now global "Modern Men's Luxury" as requested — do not overwrite with banner, only update slides
     const first = heroSec.data[0];
     if (first && heroContent){
-      const title = isArabic()? (first.title_ar||first.title_en) : (first.title_en||first.title_ar);
-      if(title) {
-        const h1=heroContent.querySelector('h1');
-        if(h1){ h1.textContent = title; h1.style.fontFamily = isArabic() ? '"Cairo", sans-serif' : '"Playfair Display", serif'; }
-      }
+      // keep global title, ensure correct font per language
+      const h1=heroContent.querySelector('h1');
+      if(h1){ h1.style.fontFamily = isArabic() ? '"Cairo", sans-serif' : '"Playfair Display", serif'; }
       // hero description removed as requested — always hide
       const p=heroContent.querySelector('p');
       if(p) { p.textContent=""; p.style.display="none"; }
@@ -191,31 +189,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     dynamicContainer.innerHTML = html;
   }
 
-  // 5. Silver price ticker — only show if valid price (avoid empty green bar between header and hero)
-  if (silverTicker){
-    try{
-      const key = window.MAZID_CONFIG.SUPABASE_ANON_KEY;
-      const url = window.MAZID_CONFIG.SUPABASE_URL + "/rest/v1/silver_prices?select=*&order=created_at.desc&limit=1";
-      const r = await fetch(url, { headers: { apikey: key, Authorization: 'Bearer '+key } });
-      if (r.ok){
-        const arr = await r.json();
-        if (Array.isArray(arr) && arr.length){
-          const sp = arr[0];
-          const priceRaw = sp.price ?? sp.price_per_gram ?? sp.current_price ?? '';
-          const price = String(priceRaw).trim();
-          if (!price || price === '0' || price === '0.0') { silverTicker.style.display='none'; return; }
-          const unit = sp.currency || 'AED';
-          const updated = sp.created_at ? new Date(sp.created_at).toLocaleDateString(isArabic()?'ar-EG':'en-US') : '';
-          silverTicker.innerHTML = `<span>Silver •</span> <strong>${price} ${unit}/g</strong> <span style="opacity:.8;">${updated}</span>`;
-          silverTicker.classList.add('show');
-        } else {
-          silverTicker.style.display='none';
-        }
-      } else {
-        silverTicker.style.display='none';
-      }
-    }catch(e){ silverTicker.style.display='none'; }
-  }
+
 
   // 6. Enhance static sections attractiveness: add fade-in on scroll
   const observer = new IntersectionObserver((entries)=>{

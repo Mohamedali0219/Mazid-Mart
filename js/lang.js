@@ -9,8 +9,8 @@ const translations = {
     work: "Work",
     contact: "Contact",
     langBtn: "عربية",
-    // Hero Section — refactored premium (hero_desc removed as requested for both languages)
-    hero_title: "MazidMart — Crafted Silver Elegance",
+    // Hero Section — global title Modern Men's Luxury as requested
+    hero_title: "Modern Men's Luxury",
     hero_desc: "",
     hero_btn: "Explore Our Silver Work →",
     hero_btn2: "Browse Catalog",
@@ -110,8 +110,8 @@ const translations = {
     work: "الأعمال",
     contact: "تواصل",
     langBtn: "English",
-    // Hero Section — refactored premium (hero_desc removed as requested)
-    hero_title: "مزيد مارت — أناقة الفضة المصنوعة بإتقان",
+    // Hero Section — global title Modern Men's Luxury as requested
+    hero_title: "Modern Men's Luxury",
     hero_desc: "",
     hero_btn: "استكشف أعمالنا الفضية →",
     hero_btn2: "تصفح الكتالوج",

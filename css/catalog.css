@@ -107,26 +107,8 @@ body.ar .work-box .badge-count { right:auto; left:10px; }
 .modal-slider .slider-caption { display:flex; align-items:center; justify-content:space-between; gap:12px; }
 .modal-slider .catalog-close-hint { font-size:0.75rem; color:#6b7280; }
 
-/* silver ticker */
-.silver-ticker {
-  position: fixed;
-  top: var(--header-h);
-  left:0;
-  right:0;
-  z-index: 900;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-600));
-  color:#fff;
-  font-size: 0.8rem;
-  padding: 6px 16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  transform: translateY(-100%);
-  transition: transform .3s var(--ease);
-}
-.silver-ticker.show { transform: translateY(0); }
-.silver-ticker strong { color: var(--color-accent); }
+/* silver ticker disabled to prevent green bar under header */
+.silver-ticker { display: none !important; }
 
 /* refine work grid breakpoints unified */
 @media (max-width: 1280px) { .product-modal-grid{grid-template-columns: repeat(3,1fr);} }
