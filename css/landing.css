@@ -25,3 +25,15 @@
 .work-overlay{ backdrop-filter: blur(2px); }
 
 .silver-ticker{ font-weight:600; letter-spacing:.3px; }
+
+/* Category highlight — reduced height for LADIES / GENTS (was 260px) */
+.cat-highlight-section > div{ min-height:auto; }
+.cat-highlight-img-wrap{ height:190px; }
+.cat-highlight-img-wrap img{ object-position:center top; }
+@media (max-width: 768px){
+  .cat-highlight-section > div{ grid-template-columns:1fr !important; }
+  .cat-highlight-img-wrap{ height:170px; order:-1; }
+}
+@media (max-width: 480px){
+  .cat-highlight-img-wrap{ height:150px; }
+}
