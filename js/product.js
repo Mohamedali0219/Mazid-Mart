@@ -58,10 +58,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   }catch(e){
     console.error(e);
-    if(statusEl){ statusEl.textContent = 'Error: '+e.message; statusEl.classList.add('error'); }
+    if(statusEl){
+      const isAr = (typeof currentLang!=='undefined' && currentLang==='ar') || document.body.classList.contains('ar');
+      statusEl.innerHTML = `Error: ${e.message}<br><button class="btn" onclick="location.reload()" style="margin-top:10px;">${isAr?'إعادة المحاولة':'Retry'}</button>`;
+      statusEl.classList.add('error');
+      statusEl.style.display='block';
+    }
+    if(contentEl) contentEl.style.display='none';
   }
 
-  function render(product){
+  async function render(product){
     const isAr = isArabic();
     const title = isAr ? (product.name_ar || product.nameAr || product.name_en || product.nameEn) : (product.name_en || product.nameEn || product.name_ar || product.nameAr);
     if(titleEl) titleEl.textContent = title;
@@ -103,6 +109,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     if(product.mainImageUrl && !images.includes(product.mainImageUrl)) images.push(product.mainImageUrl);
     if(Array.isArray(product.image_urls)) images.push(...product.image_urls);
     if(Array.isArray(product.imageUrls)) images.push(...product.imageUrls);
+    // details shape may have single image_url or first of image_urls already, ensure at least one
+    if(images.length===0 && product.image_url) images.push(product.image_url);
     const uniq = [...new Set(images.filter(Boolean))];
     if(mainImg){
       mainImg.src = uniq[0] || 'images/MazidMartLogo.png';
@@ -166,20 +174,21 @@ document.addEventListener('DOMContentLoaded', async () => {
       whatsapp.href = `https://wa.me/971555501925?text=${msg}`;
     }
 
-    // Related products by same category (attractive cross-sell) — uses app's free endpoint
+    // Related products by same category (non-blocking)
     const relatedSection = document.getElementById('relatedSection');
     const relatedGrid = document.getElementById('relatedGrid');
     const catId = product.category_id || product.categoryId || product.category?.id;
     if (catId && relatedSection && relatedGrid){
+      relatedGrid.innerHTML = `<div class="catalog-status">Loading related…</div>`;
+      relatedSection.style.display='block';
       try{
         const resp = await window.MazidAPI.getProductsByCategory(catId, 1, 8);
         const list = resp && resp.data ? resp.data : [];
         const filtered = list.filter(p=> p.id !== product.id).slice(0,4);
         if (filtered.length){
-          relatedSection.style.display='block';
           relatedGrid.innerHTML='';
           filtered.forEach(p=>{
-            const img = p.image_urls?.[0] || p.main_image_url || p.imageUrl || 'images/MazidMartLogo.png';
+            const img = p.image_urls?.[0] || p.main_image_url || p.mainImageUrl || p.imageUrl || p.image_url || 'images/MazidMartLogo.png';
             const name = pickName(p);
             const price = p.final_price ?? p.finalPrice ?? p.base_price ?? p.price ?? null;
             const priceStr = price!=null ? Number(price).toLocaleString(isAr?'ar-EG':'en-US', {maximumFractionDigits:2})+' AED' : '';
@@ -190,8 +199,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             card.innerHTML=`<img src="${img}" alt="${name}" loading="lazy" onerror="this.src='images/MazidMartLogo.png'"/><div class="product-card-body"><div class="product-card-title">${name}</div>${priceStr?`<div class="product-card-price">${priceStr}</div>`:''}</div>`;
             relatedGrid.appendChild(card);
           });
+        } else {
+          relatedGrid.innerHTML = `<div class="catalog-status">${isAr?'لا توجد منتجات مشابهة':'No related products'}</div>`;
         }
-      }catch(e){ /* silent */ }
+      }catch(e){ relatedGrid.innerHTML = `<div class="catalog-status error">Failed to load related</div>`; }
     }
   }
 });
