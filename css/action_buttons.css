@@ -18,6 +18,10 @@
 
 .fixed-actions-wrapper {
     z-index: 10000; 
+    position: relative;
+}
+.fixed-actions-wrapper .action-icon{
+    z-index: 10001;
 }
 
 .action-icon {

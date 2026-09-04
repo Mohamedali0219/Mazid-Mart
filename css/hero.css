@@ -128,6 +128,8 @@
 .hero-dots button.active{ background:#fff !important; width:36px; }
 
 body.ar .hero-content{ align-items:flex-end; text-align:right; }
+body.ar .hero h1{ font-family:"Cairo", sans-serif; }
+body.ar .hero-eyebrow{ font-family:"Cairo", sans-serif; }
 body.ar .hero::after{
   background:
     linear-gradient(270deg, rgba(10,42,24,0.82) 0%, rgba(10,42,24,0.58) 42%, rgba(10,42,24,0.10) 72%, transparent 100%),

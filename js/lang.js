@@ -197,9 +197,10 @@ function updateTexts() {
 
   const langBtn = document.getElementById("lang-btn");
   if (langBtn) {
-    const span = langBtn.querySelector("span");
-    if (span) {
-      span.textContent = translations[currentLang]["langBtn"];
+    const spans = langBtn.querySelectorAll("span");
+    const txtSpan = spans.length > 1 ? spans[1] : spans[0];
+    if (txtSpan) {
+      txtSpan.textContent = translations[currentLang]["langBtn"];
     }
   }
 
